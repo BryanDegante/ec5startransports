@@ -1,0 +1,139 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+section{
+    background-color: black;
+    color: white
+}
+
+.container{
+    padding: 96px 0;
+}
+
+.row{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto
+}
+
+/* NAV */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__list , .footer__list{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 16px;
+  font-size: 32px;
+}
+
+.nav__link, .footer__link{
+  color: white;
+  text-shadow: 0 4px 8px rgb(0, 0, 0);
+  transition: color 200ms ease;
+  margin-right: 24px;
+  font-weight: 700;
+}
+
+#landing {
+  background-image: url("./assets/logo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 30px;
+  position: relative;
+  height: 100vh;
+  color: white;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+/* SERVICES */
+.features__description--heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.features__descriptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 1024px;
+}
+
+.features__description {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: calc(100% / 3);
+  padding: 32px 20px;
+}
+
+.features__description--icon {
+  padding: 20px;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.features__description--text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+}
+
+.features__description--para {
+  margin-top: 16px;
+}
+
+/* FOOTER */
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer__contact{
+    color: white;
+    font-size: 18px;
+}
+
+.footer__logo {
+  height: 100px;
+  width: 100px;
+}
