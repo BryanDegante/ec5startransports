@@ -4,10 +4,7 @@ import Nav from './Nav'
 const Landing = () => {
   return (
     <section id='landing'>
-
-    <Nav />
-
-    {/* BACK GROUND CHICAGO SKYLINE */}
+      <Nav />
     </section>
   )
 }

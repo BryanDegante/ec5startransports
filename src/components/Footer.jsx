@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../assets/logo.png";
 import { FaInstagram, FaTiktok, FaSnapchat, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
@@ -7,7 +6,7 @@ const Footer = () => {
     <section id="footer">
       <footer>
         <figure>
-          <img src={logo} className="footer__logo" />
+          <img src='/public/logo.png' className="footer__logo" />
         </figure>
 
         <div className="footer__contact">

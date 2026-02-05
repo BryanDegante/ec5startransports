@@ -1,42 +1,49 @@
-import React from "react";
-import { FaInstagram, FaTiktok, FaSnapchat, FaFacebook } from "react-icons/fa";
+import React from 'react';
+import { FaInstagram, FaTiktok, FaSnapchat, FaFacebook } from 'react-icons/fa';
 
 const Nav = () => {
-  return (
-    <nav>
-      <ul className="nav__list">
-        <li className="nav__links">
-          <a href="" className="nav__link">
-            <FaInstagram />
-          </a>
-        </li>
-        <li className="nav__links">
-          <a href="" className="nav__link">
-            <FaTiktok />
-          </a>
-        </li>
-        <li className="nav__links">
-          <a href="" className="nav__link">
-            <FaSnapchat />
-          </a>
-        </li>
-        <li className="nav__links">
-          <a href="" className="nav__link">
-            <FaFacebook />
-          </a>
-        </li>
-      </ul>
-
-      {/* number: (469) 550 - 1176 */}
-      {/* email: ericcontreras88@gmail.com */}
-
-      {/* Insta
-        Tiktok
-        Snap
-        Facebook
-         */}
-    </nav>
-  );
+	return (
+		<nav>
+			<div className="row">
+				<div className="nav__container">
+					<div className="logo__container">
+						<figure className="nav__logo">
+							<img src="/logo.png" alt="" />
+						</figure>
+						<p className="regular white">EC 5 Star Transports</p>
+					</div>
+					<ul className="nav__list">
+						<li>
+							<a href="" className="regular white">
+								Gallery
+							</a>
+						</li>
+						<li className="">
+							<a href="" className="nav__link insta white">
+								<FaInstagram />
+							</a>
+						</li>
+						<li>
+							<a href="" className="nav__link white">
+								<FaTiktok />
+							</a>
+						</li>
+						<li>
+							<a href="" className="nav__link white">
+								<FaSnapchat />
+							</a>
+						</li>
+						<li>
+							<a href="" className="nav__link white">
+								<FaFacebook />
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+	);
 };
 
 export default Nav;

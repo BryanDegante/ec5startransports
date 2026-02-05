@@ -1,20 +1,24 @@
-import { useState } from 'react'
-import Landing from './components/Landing'
-import Services from './components/Services'
-import Reviews from './components/Reviews'
-import Footer from './components/Footer'
-
+import Home from './pages/Home';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Reviews from './pages/Reviews';
+import Gallery from './pages/Gallery';
 
 function App() {
+	return (
+		<Router>
+			<div className="App">
 
-  return (
-   <main>
-    <Landing />
-    <Services />
-    <Reviews />
-    <Footer />
-   </main>
-  )
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/Reviews" element={<Reviews />} />
+					<Route path="/Gallery" element={<Gallery />} />
+				</Routes>
+				<Footer />
+			</div>
+		</Router>
+	);
 }
 
-export default App
+export default App;

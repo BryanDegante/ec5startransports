@@ -1,7 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 * {
-  margin: 0 auto;
+  margin: 0 ;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif ;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -14,7 +30,6 @@ li {
 
 section{
     background-color: black;
-    color: white
 }
 
 .container{
@@ -27,45 +42,116 @@ section{
     margin: 0 auto
 }
 
-/* NAV */
-
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.gold{
+  color: #F4BA1D;
 }
 
-.nav__list , .footer__list{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 16px;
-  font-size: 32px;
+.charcoal{
+  color: #2B2B2B
 }
 
-.nav__link, .footer__link{
-  color: white;
-  text-shadow: 0 4px 8px rgb(0, 0, 0);
-  transition: color 200ms ease;
-  margin-right: 24px;
-  font-weight: 700;
+.black{
+  color: #000
 }
 
-#landing {
-  background-image: url("./assets/logo.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding-top: 30px;
-  position: relative;
-  height: 100vh;
-  color: white;
+.white{
+  color: #fff;
 }
 
-img {
+h1{
+  font-size: 64px;  
+  font-weight: 900;
+}
+
+h2{
+  font-size: 42px;
+  font-weight: 600;
+}
+
+h3{
+  font-size: 28px;
+  font-weight:500;
+}
+
+.regular{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+img{
   width: 100%;
   height: 100%;
 }
+
+/* NAV */
+.nav__container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px ;
+  background-color: rgba(0, 0, 0, 0.336);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+}
+
+.logo__container{
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+
+}
+
+.nav__logo{
+  width: 50px;
+  height: 50px;
+  margin: 0 16px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.nav__list{
+  display: flex;
+  align-items: center; 
+}
+
+.nav__link{
+  font-size: 28px ;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border-radius: 50%;
+  align-items: center;
+  margin: 0 24px;
+  transition: all ease 300ms;
+
+  
+}
+
+.nav__link.insta:hover{
+  background: linear-gradient(45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d,
+    #fcdf8f);
+}
+
+/* Landing */
+
+#landing{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/public/landing.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center;
+}
+
+/* ABOUT */
 
 /* SERVICES */
 .features__description--heading {
@@ -111,6 +197,14 @@ img {
 .features__description--para {
   margin-top: 16px;
 }
+
+/* HOW IT WORKS */
+
+/* WHY CHOOSE US */
+
+/* GET A QUOTE */
+
+/* GET A QUOTE MODAL */
 
 /* FOOTER */
 
