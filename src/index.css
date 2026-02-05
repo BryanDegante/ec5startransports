@@ -92,6 +92,21 @@ img {
 /* BUTTONS */
 
 button {
+  transition: all ease 300ms;
+}
+
+button:active {
+  transform: translateY(8px) scale(.8);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Get Quote Button  */
+.fill {
+  --button-color: linear-gradient(82.3deg,
+      #000 10.8%,
+      #F4BA1D 94.3%);
+  background-color: #F4BA1D;
+  border: 2px solid #F4BA1D;
   height: 50px;
   width: 200px;
   margin: 20px;
@@ -104,22 +119,14 @@ button {
   transition: all 0.5s ease-in-out;
 }
 
-.fill {
-  --button-color: linear-gradient(82.3deg,
-      #F4BA1D 5%,
-      #000 94.3%);
-  background-color: #F4BA1D;
-  border: 2px solid #F4BA1D;
-}
-
 .outline {
---button-color: linear-gradient(82.3deg,
+  --button-color: linear-gradient(82.3deg,
       #000 10.8%,
       #F4BA1D 94.3%);
   border: 2px solid #F4BA1D;
 }
 
-button::before {
+.fill::before {
   content: "";
   position: absolute;
   top: 0;
@@ -134,15 +141,21 @@ button::before {
   z-index: 0;
 }
 
-button:hover::before {
+.fill:hover::before {
   transform: scaleX(1);
 }
 
-.button-content {
+.fill-content {
   position: relative;
   z-index: 1;
   /* keeps text above pseudo-element */
 }
+
+
+
+/* Contact Us Button */
+
+
 
 
 /* NAV */
@@ -195,12 +208,12 @@ button:hover::before {
   width: 100%;
 }
 
-.nav__list {
+.social__list {
   display: flex;
   align-items: center;
 }
 
-.nav__link {
+.social__link {
   cursor: pointer;
   width: 50px;
   height: 50px;
@@ -217,14 +230,14 @@ button:hover::before {
   transition: transform 0.1s;
 }
 
-.nav__link svg {
+.social__link svg {
   color: white;
   width: 28px;
   height: 28px;
   z-index: 2;
 }
 
-.nav__link::before {
+.social__link::before {
   content: "";
   position: absolute;
   width: 0;
@@ -238,35 +251,35 @@ button:hover::before {
   transition: width 0.4s ease, height 0.4s ease;
 }
 
-.nav__link:hover::before {
+.social__link:hover::before {
   width: 120%;
   height: 120%;
 }
 
-.nav__link.insta {
+.social__link.insta {
   --brand-color: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
 }
 
-.nav__link.tiktok {
+.social__link.tiktok {
   --brand-color: linear-gradient(to right, #00F2EA, #FF0050);
 }
 
-.nav__link.snap {
+.social__link.snap {
   --brand-color: rgb(255, 252, 0);
 }
 
-.nav__link.snap svg {
+.social__link.snap svg {
   color: white;
   /* default on black */
   transition: color 0.3s ease;
 }
 
-.nav__link.snap:hover svg {
+.social__link.snap:hover svg {
   color: black;
   /* visible on yellow */
 }
 
-.nav__link.facebook {
+.social__link.facebook {
   --brand-color: rgb(24, 119, 242);
 }
 
@@ -301,49 +314,6 @@ button:hover::before {
 /* ABOUT */
 
 /* SERVICES */
-.features__description--heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 40px auto;
-}
-
-.features__descriptions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 40px auto;
-  width: 100%;
-  max-width: 1024px;
-}
-
-.features__description {
-  display: flex;
-  align-items: flex-start;
-  align-self: stretch;
-  width: calc(100% / 3);
-  padding: 32px 20px;
-}
-
-.features__description--icon {
-  padding: 20px;
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-}
-
-.features__description--text {
-  display: flex;
-  flex-direction: column;
-  padding-left: 16px;
-}
-
-.features__description--para {
-  margin-top: 16px;
-}
 
 /* HOW IT WORKS */
 
@@ -355,24 +325,24 @@ button:hover::before {
 
 /* FOOTER */
 
-#footer {
+footer {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  padding: 36px 0;
 }
 
-footer {
+.footer__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 80%;
+  padding: 24px 0;
+  margin: 36px 0;
 }
 
-.footer__contact {
-  color: white;
-  font-size: 18px;
-}
 
 .footer__logo {
   height: 100px;

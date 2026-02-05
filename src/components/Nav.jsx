@@ -12,7 +12,7 @@ const Nav = () => {
 						</figure>
 						<p className="nav__text white">EC 5 Star Transports</p>
 					</div>
-					<ul className="nav__list">
+					<ul className="social__list">
 						<li>
 							<a
 								href=""
@@ -22,22 +22,22 @@ const Nav = () => {
 							</a>
 						</li>
 						<li className="">
-							<a href="" className="nav__link insta white">
+							<a href="" className="social__link insta white">
 								<FaInstagram />
 							</a>
 						</li>
 						<li>
-							<a href="" className="nav__link tiktok white">
+							<a href="" className="social__link tiktok white">
 								<FaTiktok />
 							</a>
 						</li>
 						<li>
-							<a href="" className="nav__link snap white">
+							<a href="" className="social__link snap white">
 								<FaSnapchat />
 							</a>
 						</li>
 						<li>
-							<a href="" className="nav__link facebook white">
+							<a href="" className="social__link facebook white">
 								<FaFacebook />
 							</a>
 						</li>
