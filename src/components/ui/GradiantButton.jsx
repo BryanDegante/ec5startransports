@@ -1,10 +1,11 @@
-import { useGSAP } from '@gsap/react'
-import React from 'react'
-const GradiantButton = ({ }) => {
-  useGSAP
-  return (
-    <button></button>
-  )
-}
+import React from 'react';
 
-export default GradiantButton
+const GradiantButton = ({ type, text }) => {
+	return (
+		<button className={type}>
+			<span className="button-content">{text}</span>
+		</button>
+	);
+};
+
+export default GradiantButton;
