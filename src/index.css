@@ -357,15 +357,15 @@ button:active {
 /* Animation for Pulse Effect */
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.4);
+    box-shadow: 0 0 0 0 rgba(251, 218, 110, 0.4);
   }
 
   70% {
-    box-shadow: 0 0 0 20px rgba(110, 142, 251, 0);
+    box-shadow: 0 0 0 20px rgba(251, 237, 110, 0);
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0);
+    box-shadow: 0 0 0 0 rgba(251, 202, 110, 0);
   }
 }
 
