@@ -10,11 +10,14 @@ const Nav = () => {
 						<figure className="nav__logo">
 							<img src="/logo.png" alt="" />
 						</figure>
-						<p className="regular white">EC 5 Star Transports</p>
+						<p className="nav__text white">EC 5 Star Transports</p>
 					</div>
 					<ul className="nav__list">
 						<li>
-							<a href="" className="regular white">
+							<a
+								href=""
+								className="nav__text white  link__hover--effect"
+							>
 								Gallery
 							</a>
 						</li>
@@ -24,21 +27,20 @@ const Nav = () => {
 							</a>
 						</li>
 						<li>
-							<a href="" className="nav__link white">
+							<a href="" className="nav__link tiktok white">
 								<FaTiktok />
 							</a>
 						</li>
 						<li>
-							<a href="" className="nav__link white">
+							<a href="" className="nav__link snap white">
 								<FaSnapchat />
 							</a>
 						</li>
 						<li>
-							<a href="" className="nav__link white">
+							<a href="" className="nav__link facebook white">
 								<FaFacebook />
 							</a>
 						</li>
-						
 					</ul>
 				</div>
 			</div>
