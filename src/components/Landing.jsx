@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import GradiantButton from './ui/GradiantButton';
+import ContactButton from './ui/ContactButton';
 
 const Landing = () => {
 	return (
@@ -19,7 +20,7 @@ const Landing = () => {
 					</p>
 					<div className="landing__buttons">
 						<GradiantButton type='fill regular' text='Get a Quote' />
-						<GradiantButton type=' outline regular' text='Call Now' />
+						<ContactButton />
 					</div>
 				</div>
 			</div>
