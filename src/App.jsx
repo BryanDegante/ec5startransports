@@ -1,15 +1,14 @@
 import Home from './pages/Home';
-import Nav from './components/Nav';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import gsap from 'gsap';
 import Reviews from './pages/Reviews';
 import Gallery from './pages/Gallery';
-
 function App() {
 	return (
 		<Router>
 			<div className="App">
-
+		
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/Reviews" element={<Reviews />} />
