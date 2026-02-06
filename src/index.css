@@ -44,6 +44,14 @@ li {
   color: #F4BA1D;
 }
 
+.bg-white{
+  background-color: #fff;
+}
+
+.bg-black{
+  background-color: #000;
+}
+
 .charcoal {
   color: #2B2B2B
 }
@@ -597,11 +605,6 @@ button:active {
 /* ABOUT */
 
 /* SERVICES */
-#services{
-  background-color: #fff;
-}
-
-
 
 .section__headers--center{
   text-align: center;
@@ -643,6 +646,46 @@ button:active {
 
 /* WHY CHOOSE US */
 
+.chooseUs__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statements{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  margin-right: 100px
+}
+
+.statement__title{
+  margin-bottom: 80px;
+}
+
+.reasons{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.reason{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.reason__text{
+  margin-left: 16px;
+}
+
+.reason__para{
+  margin-top: 16px
+}
 /* GET A QUOTE */
 
 /* GET A QUOTE MODAL */

@@ -1,6 +1,7 @@
 import React from 'react'
 import Landing from '../components/Landing'
 import Services from '../components/Services'
+import WhyChooseUs from '../components/WhyChooseUs'
 
 const Home = () => {
   return (
@@ -8,7 +9,7 @@ const Home = () => {
       <Landing />
       <main>
       <Services />
-
+      <WhyChooseUs />
       </main>
     </>
   )

@@ -4,7 +4,7 @@ import ServiceCard from './ui/ServiceCard';
 
 const Services = () => {
 	return (
-		<section id="services">
+		<section id="services" className='bg-white'>
 			<div className="container ">
 				<div className="row">
 					<div class="section__headers--center">
