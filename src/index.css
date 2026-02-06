@@ -30,10 +30,6 @@ li {
   list-style-type: none;
 }
 
-section {
-  background-color: black;
-}
-
 .container {
   padding: 96px 0;
 }
@@ -87,6 +83,11 @@ h3 {
 img {
   width: 100%;
   height: 100%;
+}
+
+.section__title{
+  font-weight: 100;
+  font-size: 16px;
 }
 
 /* BUTTONS */
@@ -556,6 +557,7 @@ button:active {
 /* Landing */
 
 #landing {
+  background-color: #000;
   width: 100vw;
   height: 100vh;
   background-image: url('/landing.jpeg');
@@ -589,6 +591,9 @@ button:active {
 /* ABOUT */
 
 /* SERVICES */
+#services{
+  background-color: #fff;
+}
 
 /* HOW IT WORKS */
 
