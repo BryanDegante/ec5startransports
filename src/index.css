@@ -72,7 +72,11 @@ h2 {
 
 h3 {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+p{
+  line-height: 1.5;
 }
 
 .regular {
@@ -86,9 +90,11 @@ img {
 }
 
 .section__title{
-  font-weight: 100;
+  font-weight: 300;
   font-size: 16px;
 }
+
+
 
 /* BUTTONS */
 
@@ -594,6 +600,44 @@ button:active {
 #services{
   background-color: #fff;
 }
+
+
+
+.section__headers--center{
+  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services__title{
+  margin: 20px 0;
+  padding: 8px 0;
+}
+
+.services__container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.service__card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;align-items: center;
+  width: 400px;
+  text-align: center;
+  margin: 24px 0;
+  padding: 24px 0;
+}
+
+.service__title{
+  margin: 16px 0
+}
+
 
 /* HOW IT WORKS */
 

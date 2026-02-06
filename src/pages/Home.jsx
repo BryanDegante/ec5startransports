@@ -6,7 +6,10 @@ const Home = () => {
   return (
     <>
       <Landing />
+      <main>
       <Services />
+
+      </main>
     </>
   )
 }
