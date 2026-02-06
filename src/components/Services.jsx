@@ -9,7 +9,7 @@ const Services = () => {
 				<div className="row">
 					<div class="section__headers--center">
 						<p class="section__title">
-							<span class="gold">FEATURES</span>
+							<span class="gold">SERVICES</span>
 						</p>
 						<h2 className="services__title">
 							Expert Transport for <span class="gold">Every</span>{' '}
