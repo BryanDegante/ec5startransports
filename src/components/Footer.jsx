@@ -36,7 +36,7 @@ const Footer = () => {
 					</li>
 				</ul>
 			</div>
-			<p className="white">
+			<p className=" copyright white">
 				Copyright &copy; 2026 EC5StarTransports LLC. All Rights
 				Reserved.
 			</p>

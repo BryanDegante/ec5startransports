@@ -6,7 +6,7 @@ const ServiceCard = ({title, text,icon}) => {
 		<div className="service__card">
 			<Icon size={65} icon={icon} />
           <h3 className='service__title'>{title}</h3>
-			<p className="regular charcoal">
+			<p className="service__para regular charcoal">
 				{text}
 			</p>
 		</div>
