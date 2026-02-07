@@ -22,6 +22,11 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -44,11 +49,11 @@ li {
   color: #F4BA1D;
 }
 
-.bg-white{
+.bg-white {
   background-color: #fff;
 }
 
-.bg-black{
+.bg-black {
   background-color: #000;
 }
 
@@ -83,7 +88,7 @@ h3 {
   font-weight: 600;
 }
 
-p{
+p {
   line-height: 1.5;
 }
 
@@ -97,7 +102,7 @@ img {
   height: 100%;
 }
 
-.section__title{
+.section__title {
   font-weight: 300;
   font-size: 16px;
 }
@@ -181,7 +186,7 @@ button:active {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #e37777,
-    #ffae00);
+      #ffae00);
   color: white;
   padding: 14px 28px;
   border-radius: 50px;
@@ -260,7 +265,7 @@ button:active {
 .share-icon {
   fill: white;
   transition:
-  
+
     transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     fill 0.3s ease;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
@@ -276,8 +281,8 @@ button:active {
   top: 102%;
   left: 50%;
   transform: translateX(-50%) scale(0.8);
-    background: rgba(30, 30, 30, 0.9);
-      color: white;
+  background: rgba(30, 30, 30, 0.9);
+  color: white;
   border-radius: 15px;
   padding: 22px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -364,7 +369,7 @@ button:active {
 }
 
 .contact__icon.contact__effect:hover {
-  background: linear-gradient(135deg, #F4BA1D,#777903);
+  background: linear-gradient(135deg, #F4BA1D, #777903);
 }
 
 
@@ -606,19 +611,19 @@ button:active {
 
 /* SERVICES */
 
-.section__headers--center{
+.section__headers--center {
   text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.services__title{
+.services__title {
   margin: 20px 0;
   padding: 8px 0;
 }
 
-.services__container{
+.services__container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -627,33 +632,108 @@ button:active {
   max-width: 1280px;
 }
 
-.service__card{
+.service__card {
   display: flex;
   flex-direction: column;
-  justify-content: center;align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 400px;
   text-align: center;
   margin: 24px 0;
   padding: 24px 0;
 }
 
-.service__title{
+.service__title {
   margin: 16px 0
 }
 
 
 /* HOW IT WORKS */
+#howItWorks {
+  background: black;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 
+.how__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.img__container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.img__container img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.steps {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.step__icons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  margin: 0 25px;
+  background-color: #AEAEAE;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.step__icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #AEAEAE;
+  color: #AEAEAE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.step__icon.gold {
+  border-color: gold;
+  color: gold;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 32px 0;
+}
 /* WHY CHOOSE US */
 
-.chooseUs__container{
+.chooseUs__container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.statements{
+.statements {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -662,30 +742,31 @@ button:active {
   margin-right: 100px
 }
 
-.statement__title{
+.statement__title {
   margin-bottom: 80px;
 }
 
-.reasons{
+.reasons {
   width: 50%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.reason{
+.reason {
   display: flex;
   align-items: center;
   padding: 24px 0;
 }
 
-.reason__text{
+.reason__text {
   margin-left: 16px;
 }
 
-.reason__para{
+.reason__para {
   margin-top: 16px
 }
+
 /* GET A QUOTE */
 
 /* GET A QUOTE MODAL */
@@ -717,6 +798,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
   /* Contact Button */
   .contact__button--content {
     padding: 12px 24px;
@@ -744,7 +826,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-  
+
   /* Contact Button */
   .contact__button--content {
     padding: 10px 20px;
