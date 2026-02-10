@@ -4,16 +4,16 @@ import ServiceCard from './ui/ServiceCard';
 
 const Services = () => {
 	return (
-		<section id="services" className='bg-white'>
+		<section id="services" className="bg-white">
 			<div className="container ">
 				<div className="row">
-					<div class="section__headers--center">
-						<p class="section__title">
-							<span class="gold">SERVICES</span>
+					<div className="section__headers--center">
+						<p className="section__title">
+							<span className="gold">SERVICES</span>
 						</p>
 						<h2 className="services__title">
-							Expert Transport for <span class="gold">Every</span>{' '}
-							Vehicle
+							Expert Transport for{' '}
+							<span className="gold">Every</span> Vehicle
 						</h2>
 						<h3 className="light-grey">
 							Choose the right transport for your vehicle — we

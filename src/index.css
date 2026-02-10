@@ -309,7 +309,7 @@ button:active {
 /* Social Icons Styles */
 .contact__icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 12px;
 }
 
@@ -451,6 +451,9 @@ button:active {
 
 
 /* NAV */
+
+
+
 .nav__container {
   display: flex;
   justify-content: space-between;
@@ -577,6 +580,7 @@ button:active {
 
 /* Landing */
 
+
 #landing {
   background-color: #000;
   width: 100vw;
@@ -598,15 +602,20 @@ button:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
-  width: 30%;
-  height: 600px;
-  border-radius: 20px
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px; 
+}
+
+.landing__para{
+  margin: 24px 0;
 }
 
 .landing__buttons {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -646,7 +655,7 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  width: calc(100%/3);
   text-align: center;
   margin: 24px 0;
   padding: 24px 0;
@@ -686,7 +695,6 @@ button:active {
 
 .img__container img {
   max-height: 100%;
-  width: auto;
   object-fit: contain;
 }
 
@@ -696,6 +704,7 @@ button:active {
   align-items: center;
   flex-direction: column;
 }
+
 
 .step__icons {
   display: flex;
@@ -753,7 +762,7 @@ button:active {
   width: 50%;
   text-align: center;
   align-items: center;
-  margin-right: 100px
+  margin: 0 50px
 }
 
 .statement__title {
@@ -765,6 +774,7 @@ button:active {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  padding-right: 24px;
 }
 
 .reason {
@@ -857,8 +867,7 @@ footer {
   }
 
   .landing__container {
-    width: 36%;
-    height: 560px;
+    width: 40%;
     justify-content: space-evenly;
   }
 
@@ -869,6 +878,65 @@ footer {
   }
 
   
+}
+
+@media(max-width: 1024px){
+
+  h1{
+    font-size: 40px;
+  }
+
+  /* Landing */
+
+  .landing__buttons{
+    flex-direction: column;
+  }
+
+  /* Services */
+
+  .services__container{
+    justify-content: center;
+  }
+
+  /* How it works */
+
+  .img__container{
+    width: 55%;
+  }
+  
+  .steps{
+    width: 45%;
+  }
+
+  /* Choose Us */
+
+  .chooseUs__container{
+    flex-direction: column;
+  }
+
+  .statements{
+    width: 100%;
+    margin: 50px 0
+  }
+
+  .statement__title{
+    margin-bottom: 50px;
+  }
+
+  .reasons{
+    width: 100%;
+    align-items: center;
+  }
+
+  .reason{
+    width: 60%
+  }
+
+  /* Footer */
+
+  .footer__container{
+    justify-content: space-around;
+  }
 }
 
 @media (max-width: 768px) {
@@ -882,9 +950,7 @@ footer {
     padding: 0 20px;
   }
 
-  h1 {
-    font-size: 42px;
-  }
+ 
 
   h2 {
     font-size: 30px;
@@ -925,6 +991,12 @@ footer {
     height: 20px;
   }
 
+  /* Landing */
+
+  .landing__container{
+    width: 50%;
+  }
+
   /* Contact Button */
   .contact__button--content {
     padding: 12px 24px;
@@ -949,6 +1021,36 @@ footer {
     width: 20px;
     height: 20px;
   }
+
+  /* Services */
+
+  #services{
+    padding: 48px 0px
+  }
+
+  .service__card{
+    width: calc(100%/2);
+  }
+
+  /* How it works */
+
+  .how__container{
+    flex-direction: column-reverse;
+    padding: 0 24px
+  }
+
+  .step__container{
+    display: flex;
+  }
+
+  .steps{
+    width: 100%;
+  }
+
+  .img__container{
+    width: 100%;
+  }
+
 
   
 }
@@ -984,7 +1086,12 @@ footer {
     font-size: 14px;
   }
 
+  .section__title{
+    font-size: 12px;
+  }
+
   /* Nav */
+
 
    .nav__container {
     margin-top: 16px;
@@ -1012,6 +1119,20 @@ footer {
     width: 18px;
     height: 18px;
   }
+   
+  /* Landing */
+
+  .landing__container{
+    width: 60%;
+    backdrop-filter: blur(2px);
+  }
+
+  /* Fill Button */
+
+  .fill{
+    height: 40px;
+    width: 150px;
+  }
 
   /* Contact Button */
   .contact__button--content {
@@ -1035,5 +1156,11 @@ footer {
   .contact__icon svg {
     width: 18px;
     height: 18px;
+  }
+
+  /* Services */
+
+  .service__card{
+    width: 100%;
   }
 }

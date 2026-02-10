@@ -6,8 +6,8 @@ const ServiceCard = ({ title, text, icon }) => {
 
   useEffect(() => {
     const updateSize = () => {
-      if (window.innerWidth < 480) setSize(20);
-      else if (window.innerWidth < 768) setSize(28);
+      if (window.innerWidth <= 550) setSize(40);
+      else if (window.innerWidth <= 768) setSize(45);
       else if (window.innerWidth <= 1280) setSize(55);
       else setSize(40);
     };

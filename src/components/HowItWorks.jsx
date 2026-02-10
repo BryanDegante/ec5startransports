@@ -185,32 +185,34 @@ const HowItWorks = () => {
 							))}
 						</div>
 
-						{/* Step Texts */}
-						{[
-							{
-								title: 'Pickup',
-								text: 'We carefully collect your vehicle from your home, dealership, or business.',
-							},
-							{
-								title: 'Transport',
-								text: 'Your vehicle is safely transported using insured, professional carriers.',
-							},
-							{
-								title: 'Delivery',
-								text: 'We deliver your vehicle on time and in perfect condition.',
-							},
-						].map((step, idx) => (
-							<div
-								className="step"
-								key={idx}
-								ref={(el) => (stepsRef.current[idx] = el)}
-							>
-								<h2 className="white">{step.title}</h2>
-								<p className="regular light-grey">
-									{step.text}
-								</p>
-							</div>
-						))}
+						<div className="step__container">
+							{/* Step Texts */}
+							{[
+								{
+									title: 'Pickup',
+									text: 'We carefully collect your vehicle from your home, dealership, or business.',
+								},
+								{
+									title: 'Transport',
+									text: 'Your vehicle is safely transported using insured, professional carriers.',
+								},
+								{
+									title: 'Delivery',
+									text: 'We deliver your vehicle on time and in perfect condition.',
+								},
+							].map((step, idx) => (
+								<div
+									className="step"
+									key={idx}
+									ref={(el) => (stepsRef.current[idx] = el)}
+								>
+									<h2 className="white">{step.title}</h2>
+									<p className="regular light-grey">
+										{step.text}
+									</p>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
