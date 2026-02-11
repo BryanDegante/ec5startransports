@@ -10,33 +10,33 @@ const Nav = () => {
 						<figure className="nav__logo">
 							<img src="/logo.png" alt="" />
 						</figure>
-						<p className="nav__text white">EC 5 Star Transports</p>
+						<p className="nav__text white split">EC 5 Star Transports</p>
 					</div>
 					<ul className="social__list">
-						<li>
+						{/* <li>
 							<a
-								href=""
+								href="/Gallery"
 								className="nav__text white  link__hover--effect"
 							>
 								Gallery
 							</a>
-						</li>
-						<li className="">
+						</li> */}
+						<li className='icon__animation' >
 							<a href="" className="social__link insta white">
 								<FaInstagram />
 							</a>
 						</li>
-						<li>
+						<li className='icon__animation'>
 							<a href="" className="social__link tiktok white">
 								<FaTiktok />
 							</a>
 						</li>
-						<li>
+						<li className='icon__animation'>
 							<a href="" className="social__link snap white">
 								<FaSnapchat />
 							</a>
 						</li>
-						<li>
+						<li className='icon__animation'>
 							<a href="" className="social__link facebook white">
 								<FaFacebook />
 							</a>
