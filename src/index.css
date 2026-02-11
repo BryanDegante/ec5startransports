@@ -1225,20 +1225,35 @@ footer {
 
   .how__container {
     flex-direction: column-reverse;
-    padding: 0 24px
+    padding: 0 24px;
+    justify-content: center;
+      align-items: center;
+      gap: 40px;
+      /* spacing between image and steps */
+      padding: 20px;
   }
+
+        .img__container {
+          width: 100%;
+          height: auto;
+          /* let image scale naturally */
+        }
+    
+        .img__container img {
+          width: 80%;
+          max-height: 50vh;
+        }
 
   .step__container {
     display: flex;
   }
 
-  .steps {
-    width: 100%;
-  }
+     .steps {
+       width: 100%;
+       align-items: center;
+     }
 
-  .img__container {
-    width: 100%;
-  }
+   
 
      .footer__button--container {
        flex-direction: column;
