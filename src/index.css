@@ -606,10 +606,10 @@ button:active {
   text-align: center;
   width: 100%;
   max-width: 600px;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
 
-.landing__para{
+.landing__para {
   margin: 24px 0;
 }
 
@@ -625,7 +625,7 @@ button:active {
 
 /* SERVICES */
 
-#services{
+#services {
   padding: 48px 36px;
 }
 
@@ -645,7 +645,7 @@ button:active {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   max-width: 1280px;
 }
@@ -655,17 +655,39 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(100%/3);
+  width: calc(100% / 4);
   text-align: center;
-  margin: 24px 0;
-  padding: 24px 0;
+  padding: 32px 20px;
+  margin: 24px 8px;
+  box-shadow: #9e9e9e 0px 8px 8px 2px;
+  height: 250px;
+  border-radius: 20px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  will-change: transform;
+}
+
+.service-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 300ms ease;
+}
+
+.service__card:hover .service-icon {
+  transform: scale(1.15);
 }
 
 .service__title {
-  margin: 16px 0
+  margin: 16px 0;
+  transition: color 300ms ease;
 }
 
-.service__para{
+.service__card:hover .service__title {
+  color: #F4BA1D;
+  /* your gold */
+}
+
+.service__para {
   width: 100%;
   max-width: 400px;
 }
@@ -748,6 +770,7 @@ button:active {
   max-width: 300px;
   margin: 32px 0;
 }
+
 /* WHY CHOOSE US */
 
 .chooseUs__container {
@@ -766,7 +789,36 @@ button:active {
 }
 
 .statement__title {
-  margin-bottom: 80px;
+  display: inline-block;
+  position: relative;
+  /* needed for .shine */
+  font-weight: 700;
+  font-size: 3rem;
+  background: linear-gradient(120deg, #616040 40%, #F4BA1D 50%, #F4BA1D 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  overflow: hidden;
+  /* prevents flash from overflowing */
+}
+
+.statement__title .letter {
+  display: inline-block;
+  /* needed for wave motion */
+}
+
+.statement__title .shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #c9a24d, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  mix-blend-mode: lighten;
+  /* makes the flash only brighten the text */
 }
 
 .reasons {
@@ -775,12 +827,14 @@ button:active {
   justify-content: space-between;
   flex-direction: column;
   padding-right: 24px;
+
 }
 
 .reason {
   display: flex;
   align-items: center;
   padding: 24px 0;
+  transition: transform 300ms ease;
 }
 
 .reason__text {
@@ -822,7 +876,7 @@ footer {
   width: 100px;
 }
 
-.copyright{
+.copyright {
   font-size: 12px;
 }
 
@@ -843,11 +897,11 @@ footer {
     font-size: 22px;
   }
 
-  
+
 
   /* Nav */
 
-   .nav__logo {
+  .nav__logo {
     width: 90px;
     height: 90px;
   }
@@ -862,7 +916,7 @@ footer {
 
   /* Landing */
 
-    #landing {
+  #landing {
     padding: 0 24px;
   }
 
@@ -871,78 +925,82 @@ footer {
     justify-content: space-evenly;
   }
 
- /* Service */
+  /* Service */
 
-  .service__para{
+  .service__para {
     max-width: 350px;
   }
 
-  
+
 }
 
-@media(max-width: 1024px){
+@media(max-width: 1024px) {
 
-  h1{
+  h1 {
     font-size: 40px;
   }
 
   /* Landing */
 
-  .landing__buttons{
+  .landing__buttons {
     flex-direction: column;
   }
 
   /* Services */
 
-  .services__container{
+  .services__container {
     justify-content: center;
+  }
+
+  .service__card {
+    width: calc(100%/3);
   }
 
   /* How it works */
 
-  .img__container{
+  .img__container {
     width: 55%;
   }
-  
-  .steps{
+
+  .steps {
     width: 45%;
   }
 
   /* Choose Us */
 
-  .chooseUs__container{
+  .chooseUs__container {
     flex-direction: column;
   }
 
-  .statements{
+  .statements {
     width: 100%;
     margin: 50px 0
   }
 
-  .statement__title{
+  .statement__title {
     margin-bottom: 50px;
   }
 
-  .reasons{
+  .reasons {
     width: 100%;
     align-items: center;
   }
 
-  .reason{
+  .reason {
     width: 60%
   }
 
   /* Footer */
 
-  .footer__container{
+  .footer__container {
     justify-content: space-around;
   }
 }
 
 @media (max-width: 768px) {
 
-/* Generic  */
-.container {
+  /* Generic  */
+  .container {
     padding: 64px 0;
   }
 
@@ -950,7 +1008,7 @@ footer {
     padding: 0 20px;
   }
 
- 
+
 
   h2 {
     font-size: 30px;
@@ -966,7 +1024,7 @@ footer {
 
   /* Nav */
 
-   .nav__container {
+  .nav__container {
     padding: 8px 16px;
   }
 
@@ -993,7 +1051,7 @@ footer {
 
   /* Landing */
 
-  .landing__container{
+  .landing__container {
     width: 50%;
   }
 
@@ -1024,35 +1082,55 @@ footer {
 
   /* Services */
 
-  #services{
+  #services {
     padding: 48px 0px
   }
 
-  .service__card{
-    width: calc(100%/2);
-  }
+
 
   /* How it works */
 
-  .how__container{
+  .how__container {
     flex-direction: column-reverse;
     padding: 0 24px
   }
 
-  .step__container{
+  .step__container {
     display: flex;
   }
 
-  .steps{
+  .steps {
     width: 100%;
   }
 
-  .img__container{
+  .img__container {
     width: 100%;
   }
 
 
-  
+
+}
+
+@media (min-width: 768px) {
+  .service__card:hover {
+    transform: translateY(-8px);
+    box-shadow: #9e9e9e 0px 16px 24px 4px;
+  }
+
+  .reason:hover {
+    transform: translateX(6px);
+    /* slight forward movement */
+  }
+
+  .reason__icon {
+    transition: transform 300ms ease;
+  }
+
+  .reason:hover .reason__icon {
+    transform: scale(1.15);
+    /* micro pop */
+  }
+
 }
 
 @media (max-width: 550px) {
@@ -1086,14 +1164,14 @@ footer {
     font-size: 14px;
   }
 
-  .section__title{
+  .section__title {
     font-size: 12px;
   }
 
   /* Nav */
 
 
-   .nav__container {
+  .nav__container {
     margin-top: 16px;
     padding: 12px;
     border-radius: 16px;
@@ -1119,17 +1197,17 @@ footer {
     width: 18px;
     height: 18px;
   }
-   
+
   /* Landing */
 
-  .landing__container{
+  .landing__container {
     width: 60%;
     backdrop-filter: blur(2px);
   }
 
   /* Fill Button */
 
-  .fill{
+  .fill {
     height: 40px;
     width: 150px;
   }
@@ -1160,7 +1238,7 @@ footer {
 
   /* Services */
 
-  .service__card{
+  .service__card {
     width: 100%;
   }
 }

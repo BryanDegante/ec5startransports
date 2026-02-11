@@ -1,14 +1,97 @@
-import React from 'react'
+import React from 'react';
 import Reason from './ui/Reason';
+import { useGSAP } from '@gsap/react';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import AnimatedTitle from './ui/AnimatedTitle';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WhyChooseUs = () => {
-  return (
+	useGSAP(() => {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#whyChooseUs',
+				start: 'top 80%',
+				once: true,
+			},
+		});
+
+		// Animate header text first
+		tl.from('.statement__title', {
+			y: 24,
+			opacity: 0,
+			duration: 0.4,
+			ease: 'power3.out',
+		})
+			.from(
+				'.statements h3',
+				{
+					y: 24,
+					opacity: 0,
+					duration: 0.45,
+					ease: 'power3.out',
+				},
+				'-=0.2',
+			)
+			.from(
+				'.statements p',
+				{
+					y: 16,
+					opacity: 0,
+					duration: 0.35,
+					ease: 'power2.out',
+				},
+				'-=0.25',
+			);
+
+		// Animate reasons container
+		tl.from(
+			'.reason',
+			{
+				x: 40,
+				opacity: 0,
+				duration: 0.45,
+				stagger: 0.12,
+				ease: 'power3.out',
+			},
+			'-=0.1',
+		);
+
+		// Icon pop for each reason
+		tl.from(
+			'.reason__icon',
+			{
+				scale: 0.85,
+				opacity: 0,
+				duration: 0.3,
+				stagger: 0.12,
+				ease: 'back.out(1.4)',
+				transformOrigin: '50% 50%',
+				clearProps: 'transform',
+			},
+			'-=0.35',
+		);
+	}, []);
+
+	
+
+	const splitText = (text) => {
+		return text.split('').map((char, i) => (
+			<span key={i} className="letter">
+				{char}
+			</span>
+		));
+	};
+
+	return (
 		<section id="whyChooseUs" className="bg-white">
 			<div className="container">
 				<div className="row">
 					<div className="chooseUs__container">
 						<div className="statements">
-							<h2 className="statement__title">WHY CHOOSE US</h2>
+							<AnimatedTitle text="WHY CHOOSE US" />
 							<h3>
 								We deliver vehicles safely and on time — giving
 								our customers peace of mind.
@@ -53,7 +136,7 @@ const WhyChooseUs = () => {
 				</div>
 			</div>
 		</section>
-  );
-}
+	);
+};
 
-export default WhyChooseUs
+export default WhyChooseUs;

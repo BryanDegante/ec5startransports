@@ -1,8 +1,92 @@
 import React from 'react';
 import Icon from './ui/Icon';
 import ServiceCard from './ui/ServiceCard';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger)
 
 const Services = () => {
+	useGSAP(() => {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#services',
+				start: 'top 80%',
+				once: true,
+			},
+		});
+
+		// HEADER
+		tl.from('.section__title', {
+			y: 20,
+			opacity: 0,
+			duration: 0.35,
+			ease: 'power3.out',
+		})
+			.from(
+				'.services__title',
+				{
+					y: 30,
+					opacity: 0,
+					duration: 0.45,
+					ease: 'power3.out',
+				},
+				'-=0.15',
+			)
+			.from(
+				'#services h3',
+				{
+					y: 20,
+					opacity: 0,
+					duration: 0.35,
+					ease: 'power2.out',
+				},
+				'-=0.2',
+			)
+
+			// CARDS BLUR + FADE
+			.from(
+				'.service__card',
+				{
+					filter: 'blur(6px)',
+					opacity: 0,
+					duration: 0.4,
+					stagger: 0.15,
+					ease: 'power2.out',
+				},
+				'-=0.1',
+			)
+
+			// ICON POP
+			.from(
+				'.service-icon',
+				{
+					scale: 0,
+					opacity: 0,
+					duration: 0.45,
+					stagger: 0.15,
+					ease: 'back.out(1.6)',
+					transformOrigin: '50% 50%',
+					force3D: true,
+					clearProps: 'transform', // 👈 THIS IS THE KEY
+				},
+				'-=0.35',
+			)
+
+			// TEXT FOLLOW
+			.from(
+				'.service-text',
+				{
+					y: 24,
+					opacity: 0,
+					duration: 0.45,
+					stagger: 0.15,
+					ease: 'power3.out',
+				},
+				'-=0.4',
+			);
+	}, []);
+
 	return (
 		<section id="services" className="bg-white">
 			<div className="container ">
