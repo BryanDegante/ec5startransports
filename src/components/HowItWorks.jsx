@@ -11,6 +11,9 @@ const HowItWorks = () => {
 	const stepsRef = useRef([]);
 	const iconsRef = useRef([]);
 	const linesRef = useRef([]);
+	const currentStepRef = useRef(0); // Track current step
+
+	const stepImages = ['/truck.jpg', '/Transport.jpg', '/delivery.jpg'];
 
 	useGSAP(() => {
 		const steps = stepsRef.current;
@@ -43,7 +46,7 @@ const HowItWorks = () => {
 				stagger: 0.15,
 				scrollTrigger: {
 					trigger: sectionRef.current,
-					start: 'top 80%', // triggers just as section enters viewport
+					start: 'top 80%',
 					toggleActions: 'play none none reverse',
 				},
 			},
@@ -58,90 +61,75 @@ const HowItWorks = () => {
 			pin: true,
 			onUpdate: (self) => {
 				const progress = self.progress;
+				const newStep = Math.min(
+					Math.floor(progress * steps.length),
+					steps.length - 1,
+				);
 
-				// Hide everything if above section
-				if (self.scroll() < self.start) {
-					steps.forEach((step) =>
-						gsap.set(step, { opacity: 0, y: 20 }),
-					);
-					icons.forEach((icon) =>
-						gsap.set(icon, {
-							scale: 0.8,
-							color: '#AEAEAE',
-							borderColor: '#AEAEAE',
-						}),
-					);
-					lines.forEach((line) => gsap.set(line, { scaleX: 0 }));
-					return;
-				}
+				// Only update if step changed
+				if (newStep !== currentStepRef.current) {
+					currentStepRef.current = newStep;
 
-				// Reset everything if past section
-				if (self.scroll() > self.end) {
-					steps.forEach((step) =>
-						gsap.set(step, { opacity: 0, y: 20 }),
-					);
-					icons.forEach((icon) =>
-						gsap.set(icon, {
-							scale: 1,
-							color: '#AEAEAE',
-							borderColor: '#AEAEAE',
-						}),
-					);
-					lines.forEach((line) => gsap.set(line, { scaleX: 1 }));
-					return;
-				}
+					// Animate step texts
+					steps.forEach((step, i) => {
+						if (i === newStep) {
+							gsap.to(step, { opacity: 1, y: 0, duration: 0.4 });
+						} else {
+							gsap.to(step, {
+								opacity: 0,
+								y: -20,
+								duration: 0.4,
+							});
+						}
+					});
 
-				// Calculate current step inside section
-				const currentStep = Math.floor(progress * steps.length);
+					// Animate icons
+					icons.forEach((icon, i) => {
+						if (i === newStep) {
+							gsap.to(icon, {
+								scale: 1.15,
+								color: 'gold',
+								borderColor: 'gold',
+								duration: 0.4,
+							});
+							icon.classList.add('gold');
+						} else {
+							gsap.to(icon, {
+								scale: 1,
+								color: '#AEAEAE',
+								borderColor: '#AEAEAE',
+								duration: 0.4,
+							});
+							icon.classList.remove('gold');
+						}
+					});
 
-				// Animate step texts
-				steps.forEach((step, i) => {
-					if (i === currentStep) {
-						gsap.to(step, {
-							opacity: 1,
-							y: 0,
-							duration: 0.3,
-							ease: 'power2.out',
-						});
-					} else {
-						gsap.to(step, {
+					// Animate lines
+					lines.forEach((line, idx) => {
+						if (idx < newStep) {
+							gsap.to(line, { scaleX: 1, duration: 0.4 });
+						} else {
+							gsap.to(line, { scaleX: 0, duration: 0.4 });
+						}
+					});
+
+					// Animate image with smooth fade
+					if (image) {
+						gsap.to(image, {
 							opacity: 0,
-							y: -20,
+							scale: 0.95,
 							duration: 0.3,
-							ease: 'power2.out',
+							onComplete: () => {
+								image.src = stepImages[newStep];
+								gsap.to(image, {
+									opacity: 1,
+									scale: 1,
+									duration: 0.4,
+								});
+							},
 						});
 					}
-				});
-
-				// Animate icons
-				icons.forEach((icon, i) => {
-					if (i === currentStep) {
-						gsap.to(icon, {
-							scale: 1.15,
-							color: 'gold',
-							borderColor: 'gold',
-							duration: 0.3,
-						});
-						icon.classList.add('gold');
-					} else {
-						gsap.to(icon, {
-							scale: 1,
-							color: '#AEAEAE',
-							borderColor: '#AEAEAE',
-							duration: 0.3,
-						});
-						icon.classList.remove('gold');
-					}
-				});
-
-				// Animate lines
-				lines.forEach((line, idx) => {
-					if (idx < currentStep) {
-						gsap.to(line, { scaleX: 1, duration: 0.3 });
-					} else {
-						gsap.to(line, { scaleX: 0, duration: 0.3 });
-					}
-				});
+				}
 			},
 		});
 	}, []);
@@ -150,18 +138,14 @@ const HowItWorks = () => {
 		<section id="howItWorks" ref={sectionRef} className="bg-black">
 			<div className="container">
 				<div className="how__container">
-					{/* Image */}
 					<div className="img__container">
 						<img
 							ref={imageRef}
-							src="/truck.jpg"
-							alt="Truck pickup"
+							src={stepImages[0]}
+							alt="Step image"
 						/>
 					</div>
-
-					{/* Steps */}
 					<div className="steps">
-						{/* Step Icons */}
 						<div className="step__icons">
 							{[1, 2, 3].map((num, idx) => (
 								<React.Fragment key={idx}>
@@ -184,9 +168,7 @@ const HowItWorks = () => {
 								</React.Fragment>
 							))}
 						</div>
-
 						<div className="step__container">
-							{/* Step Texts */}
 							{[
 								{
 									title: 'Pickup',
@@ -194,11 +176,11 @@ const HowItWorks = () => {
 								},
 								{
 									title: 'Transport',
-									text: 'Your vehicle is safely transported using insured, professional carriers.',
+									text: 'Your vehicle is safely transported using insured, professional drivers.',
 								},
 								{
 									title: 'Delivery',
-									text: 'We deliver your vehicle on time and in perfect condition.',
+									text: 'We deliver your vehicle on time and in perfect condition no matter the weather.',
 								},
 							].map((step, idx) => (
 								<div
