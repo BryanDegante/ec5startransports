@@ -28,7 +28,7 @@ const Landing = () => {
 				ease: 'power3.inOut',
 				autoAlpha: 0,
 				duration: 1,
-			},'0')
+			},)
 
 		
 

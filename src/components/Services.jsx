@@ -15,8 +15,6 @@ const Services = () => {
 				once: true,
 			},
 		});
-
-		// HEADER
 		tl.from('.section__title', {
 			y: 20,
 			opacity: 0,
@@ -44,7 +42,6 @@ const Services = () => {
 				'-=0.2',
 			)
 
-			// CARDS BLUR + FADE
 			.from(
 				'.service__card',
 				{
@@ -57,7 +54,6 @@ const Services = () => {
 				'-=0.1',
 			)
 
-			// ICON POP
 			.from(
 				'.service-icon',
 				{
@@ -68,12 +64,10 @@ const Services = () => {
 					ease: 'back.out(1.6)',
 					transformOrigin: '50% 50%',
 					force3D: true,
-					clearProps: 'transform', // 👈 THIS IS THE KEY
+					clearProps: 'transform', 
 				},
 				'-=0.35',
 			)
-
-			// TEXT FOLLOW
 			.from(
 				'.service-text',
 				{

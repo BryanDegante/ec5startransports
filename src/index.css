@@ -565,7 +565,6 @@ button:active {
 
 .social__link.snap svg {
   color: white;
-  /* default on black */
   transition: color 0.3s ease;
 }
 
@@ -684,7 +683,6 @@ button:active {
 
 .service__card:hover .service__title {
   color: #F4BA1D;
-  /* your gold */
 }
 
 .service__para {
@@ -756,8 +754,8 @@ button:active {
 }
 
 .step__icon.gold {
-  border-color: gold;
-  color: gold;
+  border-color: #F4BA1D;
+  color: #F4BA1D;
 }
 
 .step {
@@ -807,6 +805,114 @@ button:active {
 
 /* GET A QUOTE MODAL */
 
+/* Overlay */
+.quote-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Modal container */
+.quote-modal {
+  background: #f2f2f2;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.35);
+  z-index: 10000;
+}
+
+/* Close button */
+.quote-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* Heading */
+.quote-heading {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+/* Form layout */
+.quote-form {
+  display: grid;
+  gap: 15px;
+}
+
+.quote-form .flex-row {
+  display: flex;
+  gap: 10px;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.quote-form textarea {
+  resize: none;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Labels above inputs for date/time */
+.input-label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  display: block;
+}
+
+/* Submit button */
+.quote-submit-btn {
+  padding: 8px 25px;
+  font-weight: 600;
+  border: 2px solid #F4BA1D;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #000;
+  color: transparent;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.95rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+}
+/* Reviews */
+
+
 /* FOOTER */
 
 footer {
@@ -838,6 +944,12 @@ footer {
   font-size: 12px;
 }
 
+.footer__button--container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 1280px) {
   .container {
     padding: 80px 0;
@@ -854,6 +966,17 @@ footer {
   h3 {
     font-size: 22px;
   }
+
+  /* Modal */
+
+     .quote-modal {
+       width: 85%;
+       padding: 28px;
+     }
+  
+     .quote-heading {
+       font-size: 1.7rem;
+     }
 
 
 
@@ -936,6 +1059,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;align-items: center;
+    text-align: center;
   }
 
   .statement__title {
@@ -950,6 +1074,24 @@ footer {
   .reason {
     width: 60%
   }
+
+  /* Modal */
+
+    .quote-modal {
+      width: 90%;
+      padding: 25px;
+    }
+  
+    .quote-heading {
+      font-size: 1.6rem;
+    }
+  
+    .quote-form input,
+    .quote-form select,
+    .quote-form textarea {
+      font-size: 1rem;
+      padding: 10px;
+    }
 
   /* Footer */
 
@@ -982,6 +1124,34 @@ footer {
   .regular {
     font-size: 15px;
   }
+
+  /* Modal */
+
+     .quote-modal {
+       width: 95%;
+       padding: 20px;
+       max-height: 95vh;
+     }
+  
+     .quote-heading {
+       font-size: 1.5rem;
+     }
+  
+     .quote-form .flex-row {
+       flex-direction: column;
+     }
+  
+     .quote-form input,
+     .quote-form select,
+     .quote-form textarea {
+       font-size: 0.95rem;
+       padding: 8px;
+     }
+  
+     .checkbox-group {
+       flex-direction: column;
+       gap: 10px;
+     }
 
   /* Nav */
 
@@ -1068,6 +1238,9 @@ footer {
     width: 100%;
   }
 
+     .footer__button--container {
+       flex-direction: column;
+     }
 
 
 }
@@ -1091,6 +1264,7 @@ footer {
     transform: scale(1.15);
     /* micro pop */
   }
+
 
 }
 
@@ -1201,5 +1375,17 @@ footer {
 
   .service__card {
     width: 100%;
+  }
+
+  /* Why US */
+
+  .reason{
+    width: 100%;
+   padding-right: 24px;
+  }
+
+  .footer__logo{
+    height: 60px;
+    width: 60px;
   }
 }

@@ -10,7 +10,6 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 	const titleRef = useRef(null);
 
 	useGSAP(() => {
-		// Split into words first
 		const splitWords = new SplitText(titleRef.current, {
 			type: 'words, chars',
 			charsClass: 'char',
@@ -19,7 +18,6 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 
 		const words = splitWords.words;
 
-		// Gradient definitions per word (word-by-word subtle variation)
 		const gradients = [
 			'linear-gradient(120deg, #7a5a12 0%, #F4BA1D 25%, #fff1b8 45%, #F4BA1D 65%, #7a5a12 100%)',
 			'linear-gradient(120deg, #8c6316 0%, #F4BA1D 25%, #fff5c0 45%, #F4BA1D 65%, #8c6316 100%)',
@@ -30,7 +28,6 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 		const settledGradient =
 			'linear-gradient(180deg, #f9d86a 0%, #F4BA1D 55%, #c99716 100%)';
 
-		// Initial char setup
 		gsap.set(splitWords.chars, {
 			opacity: 0,
 			y: 50,
@@ -42,7 +39,6 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 			color: 'transparent',
 		});
 
-		// Scroll-triggered timeline
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: titleRef.current,
@@ -52,7 +48,6 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 			defaults: { ease: 'power3.out' },
 		});
 
-		// Animate chars in with word-by-word gradient
 		words.forEach((word, index) => {
 			const chars = word.querySelectorAll('.char');
 			tl.to(
@@ -68,7 +63,6 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 			);
 		});
 
-		// Finally settle all chars into the luxury gradient
 		tl.to(
 			splitWords.chars,
 			{
@@ -87,7 +81,7 @@ export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 		<h1
 			ref={titleRef}
 			style={{
-				fontSize: '4rem',
+				
 				fontWeight: 600,
 				lineHeight: 1.1,
 				overflow: 'hidden',

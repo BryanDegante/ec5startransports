@@ -11,7 +11,7 @@ const Reason = ({ title, text, icon }) => {
 		  else setSize(40);
 		};
 	
-		updateSize(); // run once on mount
+		updateSize(); 
 		window.addEventListener('resize', updateSize);
 	
 		return () => window.removeEventListener('resize', updateSize);

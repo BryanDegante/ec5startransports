@@ -1,17 +1,20 @@
 import React from 'react';
 import { FaInstagram, FaTiktok, FaSnapchat, FaFacebook } from 'react-icons/fa';
 import ContactButton from './ui/ContactButton';
+import GradiantButton from './ui/GradiantButton';
 
 const Footer = () => {
 	return (
 		<footer>
 			<div className="footer__container">
-				<figure>
-					<img src="/logo.png" className="footer__logo" />
+				<figure className="footer__logo">
+					<img src="/logo.png" />
 				</figure>
 
-				<ContactButton />
-
+				<div className="footer__button--container">
+					<ContactButton />
+					<GradiantButton type="fill regular " text="Get a Quote" />
+				</div>
 
 				<ul className="social__list">
 					<li className="">

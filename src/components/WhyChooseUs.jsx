@@ -18,7 +18,6 @@ const WhyChooseUs = () => {
 			},
 		});
 
-		// Animate header text first
 		tl.from('.statement__title', {
 			y: 24,
 			opacity: 0,
@@ -46,7 +45,6 @@ const WhyChooseUs = () => {
 				'-=0.25',
 			);
 
-		// Animate reasons container
 		tl.from(
 			'.reason',
 			{
@@ -59,7 +57,6 @@ const WhyChooseUs = () => {
 			'-=0.1',
 		);
 
-		// Icon pop for each reason
 		tl.from(
 			'.reason__icon',
 			{
