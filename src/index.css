@@ -779,48 +779,6 @@ button:active {
   align-items: center;
 }
 
-.statements {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  text-align: center;
-  align-items: center;
-  margin: 0 50px
-}
-
-.statement__title {
-  display: inline-block;
-  position: relative;
-  /* needed for .shine */
-  font-weight: 700;
-  font-size: 3rem;
-  background: linear-gradient(120deg, #616040 40%, #F4BA1D 50%, #F4BA1D 60%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  overflow: hidden;
-  /* prevents flash from overflowing */
-}
-
-.statement__title .letter {
-  display: inline-block;
-  /* needed for wave motion */
-}
-
-.statement__title .shine {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, #c9a24d, transparent);
-  transform: skewX(-20deg);
-  pointer-events: none;
-  mix-blend-mode: lighten;
-  /* makes the flash only brighten the text */
-}
-
 .reasons {
   width: 50%;
   display: flex;
@@ -974,7 +932,10 @@ footer {
 
   .statements {
     width: 100%;
-    margin: 50px 0
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;align-items: center;
   }
 
   .statement__title {

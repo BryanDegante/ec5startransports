@@ -1,50 +1,99 @@
-import React, { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-gsap.registerPlugin(ScrollTrigger);
+import SplitText from 'gsap/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const AnimatedTitle = ({ text }) => {
+gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
+
+export default function AnimatedTitle({ text = 'Golden Flow In Words' }) {
 	const titleRef = useRef(null);
-useGSAP(() => {
-  const letters = Array.from(titleRef.current.querySelectorAll('span'));
 
-  // Wave animation
-  gsap.from(letters, {
-    y: 50,
-    opacity: 1,
-    stagger: 0.05,
-    duration: 0.6,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: titleRef.current,
-      start: 'top 80%',
-      once: true,
-    },
-  });
+	useGSAP(() => {
+		// Split into words first
+		const splitWords = new SplitText(titleRef.current, {
+			type: 'words, chars',
+			charsClass: 'char',
+			wordsClass: 'word',
+		});
 
-  // Continuous right → left gold flash
-  gsap.fromTo(
-    titleRef.current,
-    { backgroundPosition: '200% 0%' }, // start fully right
-    {
-      backgroundPosition: '0% 0%',       // move to left
-      duration: 1.5,
-      ease: 'linear',
-      repeat: -1,
-      delay: 0.6,
-    }
-  );
-}, []);
+		const words = splitWords.words;
 
+		// Gradient definitions per word (word-by-word subtle variation)
+		const gradients = [
+			'linear-gradient(120deg, #7a5a12 0%, #F4BA1D 25%, #fff1b8 45%, #F4BA1D 65%, #7a5a12 100%)',
+			'linear-gradient(120deg, #8c6316 0%, #F4BA1D 25%, #fff5c0 45%, #F4BA1D 65%, #8c6316 100%)',
+			'linear-gradient(120deg, #7a5a12 0%, #F4BA1D 25%, #fff1a0 45%, #F4BA1D 65%, #7a5a12 100%)',
+			'linear-gradient(120deg, #94691a 0%, #F4BA1D 25%, #fff4b0 45%, #F4BA1D 65%, #94691a 100%)',
+		];
+
+		const settledGradient =
+			'linear-gradient(180deg, #f9d86a 0%, #F4BA1D 55%, #c99716 100%)';
+
+		// Initial char setup
+		gsap.set(splitWords.chars, {
+			opacity: 0,
+			y: 50,
+			backgroundImage: (i, target) => gradients[i % gradients.length],
+			backgroundSize: '300% 100%',
+			backgroundPosition: '0% 50%',
+			WebkitBackgroundClip: 'text',
+			backgroundClip: 'text',
+			color: 'transparent',
+		});
+
+		// Scroll-triggered timeline
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: titleRef.current,
+				start: 'top 80%',
+				toggleActions: 'play none none reverse',
+			},
+			defaults: { ease: 'power3.out' },
+		});
+
+		// Animate chars in with word-by-word gradient
+		words.forEach((word, index) => {
+			const chars = word.querySelectorAll('.char');
+			tl.to(
+				chars,
+				{
+					opacity: 1,
+					y: 0,
+					duration: 0.8,
+					stagger: 0.03,
+					backgroundPosition: '100% 50%',
+				},
+				index * 0.1,
+			);
+		});
+
+		// Finally settle all chars into the luxury gradient
+		tl.to(
+			splitWords.chars,
+			{
+				backgroundImage: settledGradient,
+				backgroundPosition: '50% 50%',
+				duration: 0.6,
+				stagger: 0.01,
+			},
+			'-=0.4',
+		);
+
+		return () => splitWords.revert();
+	}, []);
 
 	return (
-		<h2 className="statement__title" ref={titleRef}>
-			{text.split('').map((char, i) => (
-				<span key={i}>{char}</span>
-			))}
-		</h2>
+		<h1
+			ref={titleRef}
+			style={{
+				fontSize: '4rem',
+				fontWeight: 600,
+				lineHeight: 1.1,
+				overflow: 'hidden',
+			}}
+		>
+			{text}
+		</h1>
 	);
-};
-
-export default AnimatedTitle;
+}
