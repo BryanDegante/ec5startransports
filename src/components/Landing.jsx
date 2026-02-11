@@ -66,7 +66,7 @@ const Landing = () => {
 						5-Star Vehicle Transport You Can Trust
 					</h1>
 					<p className="landing__para regular light-grey split2">
-						EC 5 Star Transport provides safe, insured, and reliable
+						EC 5 Star Transports provides safe, insured, and reliable
 						vehicle transport across Texas and nationwide. From
 						daily drivers to specialty vehicles, we deliver with
 						care.
