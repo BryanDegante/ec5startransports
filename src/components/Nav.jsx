@@ -4,7 +4,6 @@ import { FaInstagram, FaTiktok, FaSnapchat, FaFacebook } from 'react-icons/fa';
 const Nav = () => {
 	return (
 		<nav>
-			<div className="row">
 				<div className="nav__container">
 					<div className="logo__container">
 						<figure className="nav__logo">
@@ -42,7 +41,6 @@ const Nav = () => {
 							</a>
 						</li>
 					</ul>
-				</div>
 			</div>
 		</nav>
 	);

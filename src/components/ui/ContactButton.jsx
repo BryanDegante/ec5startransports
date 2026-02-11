@@ -19,7 +19,7 @@ const ContactButton = () => {
 							<IoIosMail />
 						</a>
 						<a
-							href="tel:+4695501176"
+							href="tel:+14695501176"
 							className="contact__icon phone contact__effect"
 						>
 							<FaPhone />

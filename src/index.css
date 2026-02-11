@@ -730,6 +730,8 @@ button:active {
   display: flex;
   align-items: center;
   margin-bottom: 32px;
+  justify-content: center;
+  width: 100%;
 }
 
 .line {
@@ -1319,7 +1321,7 @@ footer {
   }
 
   .nav__text {
-    font-size: 14px;
+    display: none;
   }
 
   .social__link {
@@ -1336,8 +1338,8 @@ footer {
   /* Landing */
 
   .landing__container {
-    width: 60%;
-    backdrop-filter: blur(2px);
+    width: 80%;
+    backdrop-filter: blur(0px);
   }
 
   /* Fill Button */
@@ -1382,6 +1384,14 @@ footer {
   .reason{
     width: 100%;
    padding-right: 24px;
+  }
+
+  .footer__container{
+    flex-direction: column;
+  }
+
+  .footer__button--container{
+    margin: 24px 0;
   }
 
   .footer__logo{
