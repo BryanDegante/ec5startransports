@@ -57,10 +57,44 @@ export default function QuoteModal({ onClose }) {
 
 	const handleTimeChange = (e) => setTime(e.target.value);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		alert(`Quote submitted for time: ${time}`);
-		closeModal();
+
+		const formData = new FormData(formRef.current);
+
+		const data = {
+			firstName: formData.get('firstName'),
+			lastName: formData.get('lastName'),
+			email: formData.get('email'),
+			phone: formData.get('phone'),
+			vehicles: formData.get('vehicles'),
+			origin: formData.get('origin'),
+			destination: formData.get('destination'),
+			date: formData.get('date'),
+			time: time,
+			transportType: formData.getAll('transportType'),
+			comments: formData.get('comments'),
+		};
+
+		try {
+			const response = await fetch('/api/quote', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data),
+			});
+
+			const result = await response.json();
+
+			if (response.ok && result.success) {
+				alert('Quote submitted successfully!');
+				closeModal();
+			} else {
+				alert(result.error || 'Something went wrong.');
+			}
+		} catch (err) {
+			console.error(err);
+			alert('Server error.');
+		}
 	};
 
 	useEffect(() => {
@@ -131,14 +165,34 @@ export default function QuoteModal({ onClose }) {
 					className="quote-form"
 				>
 					<div className="flex-row">
-						<input type="text" placeholder="First Name" required />
-						<input type="text" placeholder="Last Name" required />
+						<input
+							type="text"
+							name="firstName"
+							placeholder="First Name"
+							required
+						/>
+						<input
+							type="text"
+							name="lastName"
+							placeholder="Last Name"
+							required
+						/>
 					</div>
 
-					<input type="email" placeholder="Email" required />
-					<input type="tel" placeholder="Phone Number" required />
+					<input
+						type="email"
+						name="email"
+						placeholder="Email"
+						required
+					/>
+					<input
+						type="tel"
+						name="phone"
+						placeholder="Phone Number"
+						required
+					/>
 
-					<select required>
+					<select name="vehicles" required>
 						<option value="">Number of Vehicles</option>
 						{[...Array(12)].map((_, i) => (
 							<option key={i + 1} value={i + 1}>
@@ -147,16 +201,22 @@ export default function QuoteModal({ onClose }) {
 						))}
 					</select>
 
-					<input type="text" placeholder="Origin Address" required />
 					<input
 						type="text"
+						name="origin"
+						placeholder="Origin Address"
+						required
+					/>
+					<input
+						type="text"
+						name="destination"
 						placeholder="Destination Address"
 						required
 					/>
 
 					<div className="flex-column">
 						<label className="input-label">Pick Up Date</label>
-						<input type="date" required />
+						<input type="date" name="date" required />
 					</div>
 
 					<div className="flex-column">
@@ -175,22 +235,22 @@ export default function QuoteModal({ onClose }) {
 					</div>
 
 					<div className="checkbox-group">
-						<label>
-							<input type="checkbox" value="Open" /> Open
-						</label>
-						<label>
-							<input type="checkbox" value="Enclosed" /> Enclosed
-						</label>
-						<label>
-							<input type="checkbox" value="Operable" /> Operable
-						</label>
-						<label>
-							<input type="checkbox" value="Inoperable" />{' '}
-							Inoperable
-						</label>
+						{['Open', 'Enclosed', 'Operable', 'Inoperable'].map(
+							(type) => (
+								<label key={type}>
+									<input
+										type="checkbox"
+										name="transportType"
+										value={type}
+									/>{' '}
+									{type}
+								</label>
+							),
+						)}
 					</div>
 
 					<textarea
+						name="comments"
 						placeholder="Additional Comments"
 						rows={4}
 					></textarea>
