@@ -59,7 +59,6 @@ export default function QuoteModal({ onClose }) {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		const formData = new FormData(formRef.current);
 
 		const data = {
@@ -75,7 +74,6 @@ export default function QuoteModal({ onClose }) {
 			transportType: formData.getAll('transportType'),
 			comments: formData.get('comments'),
 		};
-
 		try {
 			const response = await fetch('/api/quote', {
 				method: 'POST',
@@ -83,17 +81,21 @@ export default function QuoteModal({ onClose }) {
 				body: JSON.stringify(data),
 			});
 
-			const result = await response.json();
+			let result;
+			try {
+				result = await response.json();
+			} catch {
+				result = { error: 'Invalid JSON from server' };
+			}
 
-			if (response.ok && result.success) {
+			if (response.ok) {
 				alert('Quote submitted successfully!');
 				closeModal();
 			} else {
-				alert(result.error || 'Something went wrong.');
+				alert('Error: ' + (result.error || 'Unknown error'));
 			}
 		} catch (err) {
-			console.error(err);
-			alert('Server error.');
+			alert('Server error: ' + err.message);
 		}
 	};
 
