@@ -11,26 +11,12 @@ const Landing = () => {
 	useGSAP(() => {
 		const LandingAnimation = gsap.timeline();
 
-		LandingAnimation.from('nav', {
-			y: -100,
+		LandingAnimation.from('.landing__container', {
+			x: -100,
+			ease: 'power3.inOut',
 			autoAlpha: 0,
-		})
-
-			.from('.landing__container', {
-				x: -100,
-				ease: 'power3.inOut',
-				autoAlpha: 0,
-				duration: 1,
-			})
-			.from('.icon__animation', {
-				stagger: 0.05,
-				x: 100,
-				ease: 'power3.inOut',
-				autoAlpha: 0,
-				duration: 1,
-			},)
-
-		
+			duration: 1,
+		});
 
 		SplitText.create('.split', {
 			type: 'words, chars',
@@ -59,24 +45,23 @@ const Landing = () => {
 	}, []);
 	return (
 		<section id="landing">
-			<Nav />
 			<div className="container">
 				<div className="landing__container">
 					<h1 className="white split">
 						5-Star Vehicle Transport You Can Trust
 					</h1>
 					<p className="landing__para regular light-grey split2">
-						EC 5 Star Transports provides safe, insured, and reliable
-						vehicle transport across Texas and nationwide. From
-						daily drivers to specialty vehicles, we deliver with
-						care.
+						EC 5 Star Transports provides safe, insured, and
+						reliable vehicle transport across Texas and nationwide.
+						From daily drivers to specialty vehicles, we deliver
+						with care.
 					</p>
 					<div className="landing__buttons">
 						<GradiantButton
 							type="fill regular "
 							text="Get a Quote"
 						/>
-						<ContactButton  />
+						<ContactButton />
 					</div>
 				</div>
 			</div>

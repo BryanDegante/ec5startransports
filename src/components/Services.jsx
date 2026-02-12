@@ -66,7 +66,7 @@ const Services = () => {
 					force3D: true,
 					clearProps: 'transform', 
 				},
-				'-=0.35',
+				'0',
 			)
 			.from(
 				'.service-text',
@@ -77,7 +77,7 @@ const Services = () => {
 					stagger: 0.15,
 					ease: 'power3.out',
 				},
-				'-=0.4',
+				'0',
 			);
 	}, []);
 
