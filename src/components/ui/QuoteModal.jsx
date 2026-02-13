@@ -276,7 +276,7 @@ export default function QuoteModal({ onClose }) {
 								})
 							}
 						>
-							Submit Quote
+							Submit
 						</button>
 					</div>
 				</form>
