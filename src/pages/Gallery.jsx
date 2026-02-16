@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { galleryData } from '../data/gallery';
 import GalleryCard from '../components/ui/GalleryCard';
 import { gsap } from 'gsap';
@@ -8,13 +8,11 @@ const Gallery = () => {
 	const [modal, setModal] = useState({ isOpen: false, src: '', title: '' });
 	const cardsRef = useRef([]);
 
-	// Filtered gallery items
 	const filteredData =
 		filter === 'All'
 			? galleryData
 			: galleryData.filter((item) => item.type === filter);
 
-	// Animate cards in
 	const animateCardsIn = (elements) => {
 		gsap.fromTo(
 			elements,
@@ -29,18 +27,15 @@ const Gallery = () => {
 		);
 	};
 
-	// Animate on mount and when filteredData changes
-	useLayoutEffect(() => {
-		if (!cardsRef.current) return;
 
-		// Only keep refs for current cards
+	useLayoutEffect(() => {
+		if (!cardsRef.current || filteredData.length === 0) return;
+
 		cardsRef.current = cardsRef.current.slice(0, filteredData.length);
 
-		// Animate cards in
 		animateCardsIn(cardsRef.current);
-	}, [filteredData]);
+	}, [filteredData.length]); 
 
-	// Handle filter change with smooth exit animation
 	const handleFilterChange = (type) => {
 		if (filter === type) return;
 
@@ -48,17 +43,15 @@ const Gallery = () => {
 			onComplete: () => setFilter(type),
 		});
 
-		// Exit old cards
 		tl.to(cardsRef.current, {
 			opacity: 0,
 			y: -10,
 			stagger: 0.03,
 			duration: 0.2,
 			ease: 'power2.in',
-		});
+		})
 	};
 
-	// Modal open
 	const openModal = (src, title) => {
 		setModal({ isOpen: true, src, title });
 		gsap.fromTo(
@@ -68,7 +61,6 @@ const Gallery = () => {
 		);
 	};
 
-	// Modal close
 	const closeModal = () => {
 		gsap.to('.modal-content', {
 			scale: 0.5,
@@ -81,10 +73,10 @@ const Gallery = () => {
 
 	return (
 		<section id="GalleryPage">
-			{/* Filter Buttons */}
 			<div className="filter__button--container">
 				{['All', 'Cars', 'Fleet', 'Special'].map((type) => (
 					<button
+						type="button"
 						key={type}
 						className="btn-filter"
 						onClick={() => handleFilterChange(type)}
@@ -94,7 +86,6 @@ const Gallery = () => {
 				))}
 			</div>
 
-			{/* Gallery */}
 			<div className="container">
 				<div className="row">
 					<h2 className="white">{filter}</h2>
@@ -112,7 +103,6 @@ const Gallery = () => {
 				</div>
 			</div>
 
-			{/* Modal */}
 			{modal.isOpen && (
 				<div className="modal-overlay" onClick={closeModal}>
 					<div
@@ -121,7 +111,11 @@ const Gallery = () => {
 					>
 						<img src={modal.src} alt={modal.title} />
 						<h3>{modal.title}</h3>
-						<button className="close-btn" onClick={closeModal}>
+						<button
+							type="button"
+							className="close-btn"
+							onClick={closeModal}
+						>
 							×
 						</button>
 					</div>

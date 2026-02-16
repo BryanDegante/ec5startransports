@@ -171,7 +171,6 @@ button:active {
 .fill-content {
   position: relative;
   z-index: 1;
-  /* keeps text above pseudo-element */
 }
 
 
@@ -423,7 +422,6 @@ button:active {
   animation: ripple 0.6s linear;
 }
 
-/* Tooltip Arrow */
 .contact__content::before {
   content: "";
   position: absolute;
@@ -454,21 +452,16 @@ button:active {
 /* NAV */
 nav {
   position: absolute;
-  /* floats on top */
   top: 24px;
   width: 100%;
-  /* full viewport width */
   z-index: 100;
   display: flex;
   justify-content: center;
-  /* center the inner container */
 }
 
 .nav__container {
   width: 1200px;
-  /* fixed width */
   max-width: 90%;
-  /* shrink on small screens */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -476,7 +469,6 @@ nav {
   backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: 8px 16px;
-  /* optional padding */
 }
 
 .logo__container {
@@ -589,11 +581,80 @@ nav {
 
 .social__link.snap:hover svg {
   color: black;
-  /* visible on yellow */
 }
 
 .social__link.facebook {
   --brand-color: rgb(24, 119, 242);
+}
+
+/* Nav modal */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 998;
+}
+
+.modal__panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 320px;
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__link {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.modal__link a,
+.modal__link .social__link {
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.modal__link a:hover,
+.modal__link .social__link:hover {
+  color: white;
+  transform: translateX(6px);
 }
 
 /* Landing */
@@ -743,9 +804,7 @@ nav {
   height: 100%;
   object-fit: contain;
   opacity: 0;
-  /* start invisible, fade in on scroll */
   transform: scale(0.95);
-  /* small zoom-in on appear */
   will-change: opacity, transform;
 }
 
@@ -799,7 +858,6 @@ nav {
   justify-content: center;
   align-items: center;
   min-height: 160px;
-  /* ensures container adapts */
 }
 
 .step {
@@ -811,7 +869,6 @@ nav {
   align-items: center;
   text-align: center;
   opacity: 0;
-  /* start invisible, fade in on scroll */
   transform: translateY(30px);
 }
 
@@ -852,7 +909,6 @@ nav {
 /* GET A QUOTE MODAL */
 
 /* Overlay */
-/* Overlay */
 .quote-overlay {
   position: fixed;
   top: 0;
@@ -868,7 +924,6 @@ nav {
   box-sizing: border-box;
 }
 
-/* Modal container */
 .quote-modal {
   background: #f2f2f2;
   border-radius: 8px;
@@ -882,7 +937,6 @@ nav {
   z-index: 10000;
 }
 
-/* Close button */
 .quote-close-btn {
   position: absolute;
   top: 15px;
@@ -894,13 +948,11 @@ nav {
   z-index: 10001;
 }
 
-/* Heading */
 .quote-heading {
   margin-bottom: 20px;
   font-weight: 600;
 }
 
-/* Form layout */
 .quote-form {
   display: grid;
   gap: 15px;
@@ -929,7 +981,6 @@ nav {
   flex-wrap: wrap;
 }
 
-/* Submit button with animated gradient */
 .quote-submit-btn {
   padding: 8px 25px;
   font-weight: 600;
@@ -968,7 +1019,6 @@ nav {
   box-shadow: none;
 }
 
-/* Spinner */
 .spinner {
   width: 16px;
   height: 16px;
@@ -986,13 +1036,11 @@ nav {
   }
 }
 
-/* Submit container */
 .submit-container {
   display: flex;
   justify-content: center;
 }
 
-/* Error message */
 .form-error {
   color: #ff4d4d;
   font-size: 0.9rem;
@@ -1000,7 +1048,6 @@ nav {
   font-weight: 500;
 }
 
-/* Success panel */
 .success-panel {
   text-align: center;
   padding: 2rem 1rem;
@@ -1009,7 +1056,6 @@ nav {
 .success-icon {
   font-size: 3rem;
   color: #22c55e;
-  /* green checkmark */
   margin-bottom: 1rem;
 }
 
@@ -1047,7 +1093,6 @@ nav {
   margin-top: 40px;
 }
 
-/*Filter Button */
 .btn-filter {
   --clr-font-main: hsla(0 0% 20% / 100);
   --btn-bg-1: #F4BA1D;
@@ -1072,7 +1117,6 @@ nav {
   color: var(--btn-bg-color);
   box-shadow:
     0px 0px 20px rgba(244, 186, 29, 0.5),
-    /* soft gold glow */
     0px 5px 5px -1px rgba(198, 143, 18, 0.25),
     inset 4px 4px 8px rgba(244, 186, 29, 0.5),
     inset -4px -4px 8px rgba(198, 143, 18, 0.35);
@@ -1118,7 +1162,6 @@ nav {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* Image Wrapper */
 .gallery-image-wrapper {
   position: relative;
   width: 100%;
@@ -1126,7 +1169,6 @@ nav {
   overflow: hidden;
 }
 
-/* Image Styling */
 .gallery-image {
   position: absolute;
   top: 0;
@@ -1142,7 +1184,6 @@ nav {
 }
 
 
-/* Overlay */
 .gallery-overlay {
   position: absolute;
   top: 0;
@@ -1158,7 +1199,6 @@ nav {
   opacity: 1;
 }
 
-/* Content below image */
 .gallery-content {
   padding: 15px;
   text-align: center;
@@ -1170,7 +1210,6 @@ nav {
   margin: 0;
 }
 
-/* Modal overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1184,7 +1223,6 @@ nav {
   z-index: 100;
 }
 
-/* Modal content */
 .modal-content {
   position: relative;
   max-width: 90%;
@@ -1216,13 +1254,10 @@ nav {
   top: 20px;
   right: 25px;
   font-size: 2.5rem;
-  /* bigger */
   background: rgba(255, 255, 255, 0.1);
-  /* semi-transparent background */
   color: #000000;
   border: none;
   border-radius: 50%;
-  /* circular button */
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -1230,7 +1265,6 @@ nav {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  /* subtle shadow */
   transition: all 0.3s ease;
   z-index: 101;
 }
@@ -1489,6 +1523,14 @@ footer {
     font-size: 15px;
   }
 
+    .social__list {
+      display: none;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+
   /* Modal */
 
   .quote-modal {
@@ -1636,7 +1678,6 @@ footer {
 
   .reason:hover {
     transform: translateX(6px);
-    /* slight forward movement */
   }
 
   .reason__icon {
@@ -1645,7 +1686,6 @@ footer {
 
   .reason:hover .reason__icon {
     transform: scale(1.15);
-    /* micro pop */
   }
 
 
@@ -1699,10 +1739,6 @@ footer {
     width: 56px;
     height: 56px;
     margin: 0 8px;
-  }
-
-  .nav__text {
-    display: none;
   }
 
   .social__link {

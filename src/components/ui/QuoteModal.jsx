@@ -5,9 +5,9 @@ import gsap from 'gsap';
 export default function QuoteModal({ onClose }) {
 	const [time, setTime] = useState('05:00 AM');
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [submitStatus, setSubmitStatus] = useState('idle'); // idle | success | error
+	const [submitStatus, setSubmitStatus] = useState('idle'); 
 	const [errorMessage, setErrorMessage] = useState('');
-	const [isVisible, setIsVisible] = useState(true); // for fade-out
+	const [isVisible, setIsVisible] = useState(true); 
 
 	const overlayRef = useRef(null);
 	const modalRef = useRef(null);
@@ -53,7 +53,6 @@ export default function QuoteModal({ onClose }) {
 		'10:00 PM',
 	];
 
-	// Smooth close handler
 	const handleClose = () => {
 		setIsVisible(false);
 		gsap.to(overlayRef.current, { opacity: 0, duration: 0.3 });
@@ -111,14 +110,12 @@ export default function QuoteModal({ onClose }) {
 				formRef.current.reset();
 				setTime('05:00 AM');
 
-				// Animate success panel
 				gsap.fromTo(
 					successRef.current,
 					{ opacity: 0, scale: 0.9 },
 					{ opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' },
 				);
 
-				// Auto-close after animation
 				setTimeout(() => handleClose(), 2500);
 			} else {
 				setSubmitStatus('error');
@@ -135,7 +132,6 @@ export default function QuoteModal({ onClose }) {
 	useEffect(() => {
 		if (!isVisible) return;
 
-		// Animate modal open
 		gsap.fromTo(
 			overlayRef.current,
 			{ opacity: 0 },

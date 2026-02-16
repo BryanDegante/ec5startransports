@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const GalleryCard = React.forwardRef(({ src, title, onClick }, ref) => {
 	return (
-		<div className="gallery-card" ref={ref} onClick={onClick}>
+		<div
+			className="gallery-card"
+			ref={ref}
+			onClick={(e) => {
+				e.preventDefault(); 
+				onClick();
+			}}
+		>
 			<div className="gallery-image-wrapper">
 				<img src={src} className="gallery-image" alt={title} />
 				<div className="gallery-overlay" />
@@ -15,4 +22,4 @@ const GalleryCard = React.forwardRef(({ src, title, onClick }, ref) => {
 	);
 });
 
-export default GalleryCard;
+export default memo(GalleryCard);
