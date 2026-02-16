@@ -21,16 +21,13 @@ const HowItWorks = () => {
 		const lines = linesRef.current;
 
 		// Initial states
+		gsap.set(sectionRef.current, { autoAlpha: 0 }); // section starts hidden
 		gsap.set(images, { autoAlpha: 0, scale: 0.95 });
 		gsap.set(steps, { autoAlpha: 0, y: 30 });
 		gsap.set(lines, { scaleX: 0, transformOrigin: 'left center' });
-		gsap.set(icons, {
-			scale: 1,
-			color: '#AEAEAE',
-			borderColor: '#AEAEAE',
-		});
+		gsap.set(icons, { scale: 1, color: '#AEAEAE', borderColor: '#AEAEAE' });
 
-		// Make first visible initially
+		// Make first step visible initially
 		gsap.set(images[0], { autoAlpha: 1, scale: 1 });
 		gsap.set(steps[0], { autoAlpha: 1, y: 0 });
 		gsap.set(icons[0], {
@@ -39,6 +36,7 @@ const HowItWorks = () => {
 			borderColor: '#F4BA1D',
 		});
 
+		// Timeline for everything
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: sectionRef.current,
@@ -50,12 +48,20 @@ const HowItWorks = () => {
 			},
 		});
 
+		// 1️⃣ Fade in the whole section slightly before the first step
+		tl.to(sectionRef.current, { autoAlpha: 1, duration: 0.8 }, 0); // start at position 0
+		tl.fromTo(
+			steps[0],
+			{ autoAlpha: 0, y: 20 },
+			{ autoAlpha: 1, y: 0, duration: 0.5 },
+			0.2, // starts slightly after section fade-in
+		);
+
+		// 2️⃣ Animate the rest of the steps
 		stepImages.forEach((_, i) => {
 			if (i === 0) return;
-
 			const prev = i - 1;
 
-			// Crossfade instead of hard swap
 			tl.to(images[prev], { autoAlpha: 0, scale: 0.97 }, i)
 				.fromTo(
 					images[i],
@@ -63,8 +69,6 @@ const HowItWorks = () => {
 					{ autoAlpha: 1, scale: 1 },
 					i,
 				)
-
-				// Softer text motion (less distance = more premium)
 				.to(steps[prev], { autoAlpha: 0, y: -20 }, i)
 				.fromTo(
 					steps[i],
@@ -72,23 +76,15 @@ const HowItWorks = () => {
 					{ autoAlpha: 1, y: 0 },
 					i,
 				)
-
-				// Line grows smoothly
 				.to(lines[prev], { scaleX: 1 }, i)
-
-				// Icon grows subtly (not aggressive)
 				.to(
 					icons[i],
-					{
-						scale: 1.12,
-						color: '#F4BA1D',
-						borderColor: '#F4BA1D',
-					},
+					{ scale: 1.12, color: '#F4BA1D', borderColor: '#F4BA1D' },
 					i,
 				);
 		});
-
 	}, []);
+
 
 	return (
 		<section id="howItWorks" ref={sectionRef}>

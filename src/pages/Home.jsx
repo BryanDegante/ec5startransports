@@ -4,6 +4,7 @@ import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import HowItWorks from '../components/HowItWorks';
 import Reviews from '../components/Reviews';
+import GallerySection from '../components/GallerySection';
 
 const Home = () => {
 	return (
@@ -13,6 +14,7 @@ const Home = () => {
 				<Services />
 				<HowItWorks />
 				<WhyChooseUs />
+				<GallerySection />
 			</main>
 		</>
 	);

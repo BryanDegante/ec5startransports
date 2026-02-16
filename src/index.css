@@ -852,6 +852,7 @@ nav {
 /* GET A QUOTE MODAL */
 
 /* Overlay */
+/* Overlay */
 .quote-overlay {
   position: fixed;
   top: 0;
@@ -928,32 +929,99 @@ nav {
   flex-wrap: wrap;
 }
 
-/* Labels above inputs for date/time */
-.input-label {
-  font-weight: 500;
-  margin-bottom: 5px;
-  font-size: 0.95rem;
-  display: block;
-}
-
-/* Submit button */
+/* Submit button with animated gradient */
 .quote-submit-btn {
   padding: 8px 25px;
   font-weight: 600;
   border: 2px solid #F4BA1D;
   border-radius: 6px;
   cursor: pointer;
-  background-color: #000;
+  background: linear-gradient(120deg, #7a5a12 0%, #F4BA1D 25%, #fff1b8 45%, #F4BA1D 65%, #7a5a12 100%);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   position: relative;
   overflow: hidden;
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  animation: gradientMove 2s infinite alternate ease-in-out;
   transition: box-shadow 0.3s ease;
 }
 
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.quote-submit-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #F4BA1D;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Submit container */
 .submit-container {
   display: flex;
   justify-content: center;
+}
+
+/* Error message */
+.form-error {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Success panel */
+.success-panel {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: #22c55e;
+  /* green checkmark */
+  margin-bottom: 1rem;
+}
+
+.success-panel h2 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.success-panel p {
+  color: #333;
+  font-size: 0.95rem;
 }
 
 /* GALLERY */
