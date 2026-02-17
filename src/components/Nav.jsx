@@ -146,7 +146,7 @@ const Nav = () => {
 						</li>
 						<li className="icon__animation">
 							<a
-								href="/Gallery"
+								href="/gallery"
 								className="nav__text white page__link link__hover--effect"
 							>
 								Gallery

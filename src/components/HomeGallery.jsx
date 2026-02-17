@@ -43,7 +43,7 @@ export default function HomeGallery() {
 				</div>
 
 				<div className="home-gallery-cta">
-					<a href="/Gallery" className="view-gallery-btn">
+					<a href="/gallery" className="view-gallery-btn">
 						View Full Gallery →
 					</a>
 				</div>
