@@ -125,7 +125,7 @@ const Nav = () => {
 					<div className="logo__container">
 						<figure className="nav__logo">
 							<img
-								src="/logo.png"
+								src="/images/logo.png"
 								alt="EC 5 Star Transports Logo"
 							/>
 						</figure>

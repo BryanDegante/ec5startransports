@@ -1,7 +1,7 @@
 export const galleryData = [
     {
         id: 1, 
-        src: '/Gallery/gallery1.jpg',
+        src: '/Gallery/gallery1.PNG',
         type: 'Cars',
         title: 'Multi-Vehicle Transport'
     },
@@ -43,7 +43,7 @@ export const galleryData = [
     },
     {
         id: 8, 
-        src: '/Gallery/gallery8.jpg',
+        src: '/Gallery/gallery8.png',
         type: 'Fleet',
         title: 'Fleet Transport'
     },
@@ -87,5 +87,22 @@ export const galleryData = [
         type: 'Cars',
         title: 'Pickup Truck Delivery'
     },
-  
+    {
+        id: 16,
+        src: '/images/multi-vehicle.jpg',
+        type: 'Cars',
+        title: 'Multi-Vehicle Transport',
+    },
+    {
+        id: 17,
+        src: '/images/fleet.jpg',
+        type: 'Fleet',
+        title: 'Fleet Transport',
+    },
+    {
+        id: 18,
+        src: '/images/pickup.png',
+        type: 'Cars',
+        title: 'Pickup Truck Delivery',
+    },
 ]

@@ -12,7 +12,11 @@ const HowItWorks = () => {
 	const iconsRef = useRef([]);
 	const linesRef = useRef([]);
 
-	const stepImages = ['/truck.jpg', '/Transport.jpg', '/delivery.jpg'];
+	const stepImages = [
+		'/images/truck.jpg',
+		'/images/Transport.jpg',
+		'/images/delivery.jpg',
+	];
 
 	useGSAP(() => {
 		const images = imageRef.current;

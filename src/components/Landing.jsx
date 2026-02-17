@@ -58,8 +58,6 @@ const Landing = () => {
 					</p>
 					<div className="landing__buttons">
 						<GradiantButton
-							type="fill regular "
-							text="Get a Quote"
 						/>
 						<ContactButton />
 					</div>
