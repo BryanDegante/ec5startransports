@@ -5,15 +5,16 @@ import gsap from 'gsap';
 export default function QuoteModal({ onClose }) {
 	const [time, setTime] = useState('05:00 AM');
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [submitStatus, setSubmitStatus] = useState('idle'); 
+	const [submitStatus, setSubmitStatus] = useState('idle');
 	const [errorMessage, setErrorMessage] = useState('');
-	const [isVisible, setIsVisible] = useState(true); 
+	const [isVisible, setIsVisible] = useState(true);
 
 	const overlayRef = useRef(null);
 	const modalRef = useRef(null);
 	const formRef = useRef(null);
 	const buttonRef = useRef(null);
 	const successRef = useRef(null);
+	const headingRef = useRef(null);
 
 	const times = [
 		'05:00 AM',
@@ -132,18 +133,60 @@ export default function QuoteModal({ onClose }) {
 	useEffect(() => {
 		if (!isVisible) return;
 
+		// Overlay fade in
 		gsap.fromTo(
 			overlayRef.current,
 			{ opacity: 0 },
 			{ opacity: 1, duration: 0.3 },
 		);
 
+		// Modal slide/scale in
 		gsap.fromTo(
 			modalRef.current,
 			{ y: 50, opacity: 0, scale: 0.95 },
 			{ y: 0, opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' },
 		);
 
+		// Staggered fields animation
+		if (formRef.current) {
+			const fields = formRef.current.querySelectorAll(
+				'input, select, textarea, div.checkbox-group',
+			);
+			gsap.fromTo(
+				fields,
+				{ y: 20, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					duration: 0.4,
+					stagger: 0.08,
+					ease: 'power3.out',
+					delay: 0.2,
+				},
+			);
+		}
+
+		// Gradient animation for heading and button
+		const gradientStyle = {
+			backgroundImage:
+				'linear-gradient(120deg, #7a5a12 0%, #F4BA1D 25%, #fff1b8 45%, #F4BA1D 65%, #7a5a12 100%)',
+			backgroundSize: '300% 100%',
+			backgroundPosition: '0% 50%',
+			WebkitBackgroundClip: 'text',
+			backgroundClip: 'text',
+			color: 'transparent',
+		};
+
+		gsap.set([headingRef.current, buttonRef.current], gradientStyle);
+		gsap.to([headingRef.current, buttonRef.current], {
+			backgroundPosition: '100% 50%',
+			duration: 2,
+			repeat: -1,
+			yoyo: true,
+			ease: 'power1.inOut',
+		});
+
+		// Button hover shadows
 		if (buttonRef.current) {
 			buttonRef.current.addEventListener('mouseenter', () =>
 				gsap.to(buttonRef.current, {
@@ -175,7 +218,9 @@ export default function QuoteModal({ onClose }) {
 					</div>
 				) : (
 					<>
-						<h2 className="quote-heading">Request a Quote</h2>
+						<h2 ref={headingRef} className="quote-heading">
+							Request a Quote
+						</h2>
 
 						<form
 							ref={formRef}

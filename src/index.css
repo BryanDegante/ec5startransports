@@ -953,6 +953,21 @@ nav {
 .quote-heading {
   margin-bottom: 20px;
   font-weight: 600;
+
+  /* Gradient like the submit button */
+  background: linear-gradient(120deg,
+      #7a5a12 0%,
+      #F4BA1D 25%,
+      #fff1b8 45%,
+      #F4BA1D 65%,
+      #7a5a12 100%);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  /* Animate the gradient */
+  animation: gradientMove 2s infinite alternate ease-in-out;
 }
 
 .quote-form {
