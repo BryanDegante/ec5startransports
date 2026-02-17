@@ -4,6 +4,8 @@ import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import HowItWorks from '../components/HowItWorks';
 import Reviews from '../components/Reviews';
+import GallerySection from '../components/HomeGallery';
+import FinalCTA from '../components/FinalCTA';
 
 const Home = () => {
 	return (
@@ -13,6 +15,9 @@ const Home = () => {
 				<Services />
 				<HowItWorks />
 				<WhyChooseUs />
+				<Reviews />
+				<GallerySection />
+				<FinalCTA />
 			</main>
 		</>
 	);

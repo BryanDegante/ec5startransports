@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import QuoteModal from './QuoteModal';
 
-const GradiantButton = ({ type = '', text = 'Request Quote' }) => {
+const GradiantButton = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	return (
 		<>
-			<button className={type} onClick={() => setIsModalOpen(true)}>
-				<span className="fill-content">{text}</span>
+			<button
+				className="fill regular "
+				onClick={() => setIsModalOpen(true)}
+			>
+				<span className="fill-content">Request a Quote</span>
 			</button>
 
 			{isModalOpen && (

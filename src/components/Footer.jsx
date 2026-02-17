@@ -1,23 +1,32 @@
 import React from 'react';
 import { FaInstagram, FaTiktok, FaSnapchat, FaFacebook } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom'; // <-- import useLocation
 import ContactButton from './ui/ContactButton';
 import GradiantButton from './ui/GradiantButton';
 
 const Footer = () => {
+	const location = useLocation(); 
+	const isHomePage = location.pathname === '/'; 
+
 	return (
 		<footer>
 			<div className="footer__container">
 				<figure className="footer__logo">
-					<img src="/logo.png" />
+					<img src="/images/logo.png" />
 				</figure>
 
-				<div className="footer__button--container">
-					<ContactButton />
-					<GradiantButton type="fill regular " text="Get a Quote" />
-				</div>
+				{!isHomePage && (
+					<div className="footer__button--container">
+						<ContactButton />
+						<GradiantButton
+							type="fill regular"
+							text="Get a Quote"
+						/>
+					</div>
+				)}
 
 				<ul className="social__list">
-					<li className="">
+					<li>
 						<a href="" className="social__link insta white">
 							<FaInstagram />
 						</a>
@@ -39,7 +48,7 @@ const Footer = () => {
 					</li>
 				</ul>
 			</div>
-			<p className=" copyright white">
+			<p className="copyright white">
 				Copyright &copy; 2026 EC5StarTransports LLC. All Rights
 				Reserved.
 			</p>
