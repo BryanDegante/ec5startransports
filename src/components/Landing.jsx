@@ -50,15 +50,21 @@ const Landing = () => {
 					<h1 className="white split">
 						5-Star Vehicle Transport You Can Trust
 					</h1>
+
 					<p className="landing__para regular light-grey split2">
 						EC 5 Star Transports provides safe, insured, and
 						reliable vehicle transport across Texas and nationwide.
 						From daily drivers to specialty vehicles, we deliver
 						with care.
 					</p>
+
+					{/* ⭐ SLOGAN — PERFECT SPOT */}
+					<p className="landing__slogan split gold">
+						Where Every Load Gets Five-Star Care.
+					</p>
+
 					<div className="landing__buttons">
-						<GradiantButton
-						/>
+						<GradiantButton />
 						<ContactButton />
 					</div>
 				</div>

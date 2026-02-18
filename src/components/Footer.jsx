@@ -10,6 +10,7 @@ const Footer = () => {
 
 	return (
 		<footer>
+			<hr className="footer__divider" /> {/* <-- division line here */}
 			<div className="footer__container">
 				<figure className="footer__logo">
 					<img src="/images/logo.png" />
@@ -48,6 +49,8 @@ const Footer = () => {
 					</li>
 				</ul>
 			</div>
+			<hr className="footer__divider" />{' '}
+			{/* optional divider before copyright */}
 			<p className="copyright white">
 				Copyright &copy; 2026 EC5StarTransports LLC. All Rights
 				Reserved.

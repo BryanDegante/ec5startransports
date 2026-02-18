@@ -466,7 +466,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.336);
+  background-color: #0000008c;
   backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: 8px 16px;
@@ -511,6 +511,40 @@ nav {
   width: 100%;
 }
 
+.socials__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.socials__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.socials__dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.socials__dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 .social__list {
   display: flex;
   align-items: center;
@@ -522,8 +556,8 @@ nav {
 
 .social__link {
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   font-size: 28px;
   border-radius: 50%;
   background: #000;
@@ -557,6 +591,8 @@ nav {
   transform: translate(-50%, -50%);
   transition: width 0.4s ease, height 0.4s ease;
 }
+
+
 
 .social__link:hover::before {
   width: 120%;
@@ -695,6 +731,15 @@ nav {
   margin: 24px 0;
 }
 
+.landing__slogan {
+  margin-top: 18px;
+  margin-bottom: 28px;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
 .landing__buttons {
   display: flex;
   flex-direction: column;
@@ -704,10 +749,206 @@ nav {
 }
 
 /* ABOUT */
+.about {
+  padding: 120px 0;
+  background: #000;
+}
+
+.about-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ===============================
+   IMAGE
+================================ */
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+/* ===============================
+   CONTENT
+================================ */
+
+.about-eyebrow {
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.about-title {
+  margin-bottom: 24px;
+}
+
+.about-text {
+  color: #a8adb7;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+/* bullets */
+
+.about-bullets {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.about-bullet {
+  color: #d1d5db;
+  letter-spacing: 0.5px;
+}
+
+/* slogan */
+
+.about-slogan {
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+/* About Page */
+
+.about-hero {
+  position: relative;
+  height: 50vh;
+  background-attachment: fixed;
+  min-height: 420px;
+  background: url("/images/denali-grass.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.about-hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.about-hero h1 {
+  color: #fff;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  margin-top: 12px;
+}
+
+/* ===============================
+   STORY
+================================ */
+
+.about-story {
+  padding: 120px 0;
+  background: #000;
+}
+
+.about-story-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-story h2 {
+  margin-bottom: 32px;
+}
+
+.about-story p {
+  color: #a8adb7;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.about-page-slogan {
+  margin-top: 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* ===============================
+   TRUST STRIP
+================================ */
+
+.about-trust {
+  padding: 80px 0;
+  background: #050505;
+}
+
+.about-trust-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.trust-item h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.trust-item p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.about-luxury-btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 32px;
+  border: 1px solid #F4BA1D;
+  color: #F4BA1D;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+/* hover fill effect */
+.about-luxury-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #F4BA1D;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+.about-luxury-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.about-luxury-btn:hover {
+  color: #000;
+  border-color: #F4BA1D;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(200, 168, 90, 0.25);
+}
+
 
 /* SERVICES */
 
-#services, #whyChooseUs{
+#services,
+#whyChooseUs {
   padding: 48px 36px;
 }
 
@@ -1502,6 +1743,7 @@ nav {
   font-size: 0.8rem;
   letter-spacing: 1px;
 }
+
 /* FOOTER */
 
 footer {
@@ -1512,6 +1754,7 @@ footer {
   background-color: #000;
   padding: 36px 0;
 }
+
 .footer__divider {
   width: 50%;
   margin: 32px auto;
@@ -1522,7 +1765,7 @@ footer {
 
 .footer__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   max-width: 1024px;
   width: 100%;
@@ -1592,6 +1835,30 @@ footer {
     width: 40%;
     justify-content: space-evenly;
   }
+
+  /* ABout */
+
+  .about-trust-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-story {
+    padding: 100px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about {
+    padding: 100px 0;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
 
   /* Service */
 
@@ -1884,36 +2151,36 @@ footer {
   }
 
   /* Reviews */
- .reviews-grid {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   /* center cards */
-   gap: 40px;
- }
+  .reviews-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* center cards */
+    gap: 40px;
+  }
 
- .review-card {
-   flex: 0 0 45%;
-   /* ~2 cards per row */
-   max-width: 500px;
-   padding: 28px;
- }
+  .review-card {
+    flex: 0 0 45%;
+    /* ~2 cards per row */
+    max-width: 500px;
+    padding: 28px;
+  }
 
- .reviews {
-   padding: 100px 0;
- }
+  .reviews {
+    padding: 100px 0;
+  }
 
- .reviews-header {
-   margin-bottom: 56px;
- }
+  .reviews-header {
+    margin-bottom: 56px;
+  }
 
- .review-text {
-   font-size: 0.95rem;
- }
+  .review-text {
+    font-size: 0.95rem;
+  }
 
- .review-location {
-   font-size: 0.85rem;
- }
+  .review-location {
+    font-size: 0.85rem;
+  }
 
   /* Gallery */
   #GalleryPage h2.white {
@@ -1949,9 +2216,9 @@ footer {
     flex-direction: column;
   }
 
-    .footer__container {
-      flex-direction: column;
-    }
+  .footer__container {
+    flex-direction: column;
+  }
 
 
 }
@@ -2071,6 +2338,24 @@ footer {
     height: 18px;
   }
 
+  /* About */
+
+  .about-trust-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story {
+    padding: 80px 0;
+  }
+
+  .about-hero {
+    height: 40vh;
+  }
+
+  .about {
+    padding: 80px 0;
+  }
+
   /* Services */
 
   .service__card {
@@ -2114,43 +2399,39 @@ footer {
 
   /* Reviews */
 
-     .reviews-grid {
-       display: flex;
-       flex-wrap: nowrap;
-       overflow-x: auto;
-       gap: 16px;
-       padding-left: 0;
-       /* remove padding-left */
-       scroll-padding-left: 16px;
-       /* optional for smooth snapping */
-       padding-bottom: 8px;
-     }
-  
-     .review-card {
-       flex: 0 0 80%;
-       /* card takes most of viewport */
-       min-width: 80%;
-       /* ensures first card is fully visible */
-       padding: 24px;
-     }
-  
-     .reviews {
-       padding: 80px 0;
-     }
-  
-     .reviews-header {
-       margin-bottom: 48px;
-     }
-  
-     /* Hide horizontal scrollbar */
-     .reviews-grid::-webkit-scrollbar {
-       display: none;
-     }
-  
-     .reviews-grid {
-       -ms-overflow-style: none;
-       scrollbar-width: none;
-     }
+  .reviews-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding-left: 0;
+    scroll-padding-left: 16px;
+    padding-bottom: 8px;
+  }
+
+  .review-card {
+    flex: 0 0 80%;
+    min-width: 80%;
+    padding: 24px;
+  }
+
+  .reviews {
+    padding: 80px 0;
+  }
+
+  .reviews-header {
+    margin-bottom: 48px;
+  }
+
+  .reviews-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reviews-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   /* Gallery */
   #GalleryPage {
     padding-top: 80px;

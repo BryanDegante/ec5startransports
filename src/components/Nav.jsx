@@ -15,14 +15,19 @@ const Nav = () => {
 	const [isClosing, setIsClosing] = useState(false);
 	const modalRef = useRef(null);
 	const overlayRef = useRef(null);
+	const [socialsOpen, setSocialsOpen] = useState(false);
 
 	// Desktop nav animation
 	useGSAP(() => {
 
 	
 		const tl = gsap.timeline();
-		tl.from('nav', { y: -100, autoAlpha: 0, duration: 1 })
-			.from(
+		tl.from('nav', {
+			y: -100,
+			autoAlpha: 0,
+			duration: 1,
+			ease: 'power3.inOut',
+		}).from(
 			'.icon__animation',
 			{
 				stagger: 0.05,
@@ -30,7 +35,8 @@ const Nav = () => {
 				autoAlpha: 0,
 				ease: 'power3.inOut',
 				duration: 1,
-			},'0'
+			},
+			'0',
 		);
 	}, []);
 
@@ -76,7 +82,6 @@ const Nav = () => {
 		}
 	}, [isOpen]);
 
-	// Close handler with staggered animation
 	const handleClose = () => {
 		if (modalRef.current && overlayRef.current) {
 			setIsClosing(true);
@@ -88,7 +93,6 @@ const Nav = () => {
 				},
 			});
 
-			// Animate social icons first
 			tl.to('.modal__link.social', {
 				y: 30,
 				autoAlpha: 0,
@@ -96,7 +100,6 @@ const Nav = () => {
 				duration: 0.3,
 				ease: 'power3.in',
 			})
-				// Animate main links
 				.to(
 					'.modal__link:not(.social)',
 					{
@@ -108,7 +111,6 @@ const Nav = () => {
 					},
 					'<',
 				)
-				// Slide modal out and fade overlay
 				.to(
 					modalRef.current,
 					{ x: '100%', duration: 0.5, ease: 'power4.in' },
@@ -144,6 +146,16 @@ const Nav = () => {
 								Home
 							</a>
 						</li>
+
+						<li className="icon__animation">
+							<a
+								href="/about"
+								className="nav__text white page__link link__hover--effect"
+							>
+								About
+							</a>
+						</li>
+
 						<li className="icon__animation">
 							<a
 								href="/gallery"
@@ -152,25 +164,38 @@ const Nav = () => {
 								Gallery
 							</a>
 						</li>
-						<li className="icon__animation">
-							<a href="" className="social__link insta white">
-								<FaInstagram />
-							</a>
-						</li>
-						<li className="icon__animation">
-							<a href="" className="social__link tiktok white">
-								<FaTiktok />
-							</a>
-						</li>
-						<li className="icon__animation">
-							<a href="" className="social__link snap white">
-								<FaSnapchat />
-							</a>
-						</li>
-						<li className="icon__animation">
-							<a href="" className="social__link facebook white">
-								<FaFacebook />
-							</a>
+
+						{/* Socials Button */}
+						<li className="socials__wrapper icon__animation">
+							<button
+								className="socials__toggle page__link link__hover--effect nav__text white"
+								onClick={() => setSocialsOpen(!socialsOpen)}
+							>
+								Socials
+							</button>
+
+							<div
+								className={`socials__dropdown ${socialsOpen ? 'open' : ''}`}
+							>
+								<a href="" className="social__link insta white">
+									<FaInstagram />
+								</a>
+								<a
+									href=""
+									className="social__link tiktok white"
+								>
+									<FaTiktok />
+								</a>
+								<a href="" className="social__link snap white">
+									<FaSnapchat />
+								</a>
+								<a
+									href=""
+									className="social__link facebook white"
+								>
+									<FaFacebook />
+								</a>
+							</div>
 						</li>
 					</ul>
 
@@ -206,6 +231,14 @@ const Nav = () => {
 									className="nav__text white page__link link__hover--effect"
 								>
 									Home
+								</a>
+							</li>
+							<li className="modal__link">
+								<a
+									href="/about"
+									className="nav__text white page__link link__hover--effect"
+								>
+									About
 								</a>
 							</li>
 							<li className="modal__link">

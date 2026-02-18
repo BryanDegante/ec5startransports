@@ -6,12 +6,14 @@ import HowItWorks from '../components/HowItWorks';
 import Reviews from '../components/Reviews';
 import GallerySection from '../components/HomeGallery';
 import FinalCTA from '../components/FinalCTA';
+import AboutSection from '../components/AboutSection';
 
 const Home = () => {
 	return (
 		<>
 			<Landing />
 			<main>
+				<AboutSection />
 				<Services />
 				<HowItWorks />
 				<WhyChooseUs />

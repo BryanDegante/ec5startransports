@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import Reviews from './pages/Reviews';
 import Gallery from './pages/Gallery';
 import Nav from './components/Nav';
+import About from './pages/About';
 function App() {
 	return (
 		<Router>
@@ -12,8 +13,9 @@ function App() {
 				<Nav />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/reviews" element={<Reviews />} />
+					<Route path="/about" element={<About />} />
 					<Route path="/gallery" element={<Gallery />} />
+					<Route path="/reviews" element={<Reviews />} />
 				</Routes>
 				<Footer />
 			</div>
