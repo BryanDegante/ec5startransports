@@ -249,17 +249,20 @@ const Nav = () => {
 							</li>
 							<li className="modal__link">
 								<a
-									href="https://www.instagram.com/ec5startransports/"
-									className="social__link insta white"
-									target="_blank"
-									rel="noopener noreferrer"
+									href="/gallery"
+									className="nav__text white page__link link__hover--effect"
 								>
 									Gallery
 								</a>
 							</li>
 							{/* Social icons */}
 							<li className="modal__link social">
-								<a href="" className="social__link insta white">
+								<a
+									href="https://www.instagram.com/ec5startransports/"
+									className="social__link insta white"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<FaInstagram />
 								</a>
 							</li>
