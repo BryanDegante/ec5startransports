@@ -6,7 +6,7 @@ export default function FinalCTA() {
 	const ctaRef = useRef(null);
 
 	return (
-		<section className="home-cta bg-black" ref={ctaRef}>
+		<section className="home-cta " ref={ctaRef}>
 			<div className="home-cta-container">
 				<p className="home-cta-eyebrow gold">
 					SAFE. SECURE. ON SCHEDULE.

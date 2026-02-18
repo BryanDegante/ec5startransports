@@ -74,7 +74,7 @@ const Gallery = () => {
 	return (
 		<section id="GalleryPage">
 			<div className="filter__button--container">
-				{['All', 'Cars', 'Fleet', 'Special'].map((type) => (
+				{['All', 'Cars', 'Fleet', 'Special', 'Freight'].map((type) => (
 					<button
 						type="button"
 						key={type}

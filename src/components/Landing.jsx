@@ -58,11 +58,6 @@ const Landing = () => {
 						with care.
 					</p>
 
-					{/* ⭐ SLOGAN — PERFECT SPOT */}
-					<p className="landing__slogan split gold">
-						Where Every Load Gets Five-Star Care.
-					</p>
-
 					<div className="landing__buttons">
 						<GradiantButton />
 						<ContactButton />

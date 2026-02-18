@@ -27,13 +27,13 @@ export const galleryData = [
         id: 5, 
         src: '/Gallery/gallery5.jpg',
         type: 'Cars',
-        title: 'Pickup Truck Delivery'
+        title: 'Single Car Transport'
     },
     {
         id: 6, 
         src: '/Gallery/gallery6.jpg',
         type: 'Cars',
-        title: 'Pickup Truck Delivery'
+        title: 'Single Car Transport'
     },
     {
         id: 7, 
@@ -56,7 +56,8 @@ export const galleryData = [
     {
         id: 10, 
         src: '/Gallery/gallery10.JPG',
-        type: 'Cars'
+        type: 'Cars',
+        title: 'Single Car Transport'
     },
     {
         id: 11, 
@@ -67,7 +68,8 @@ export const galleryData = [
     {
         id: 12, 
         src: '/Gallery/gallery12.jpeg',
-        type: 'Special'
+        type: 'Special',
+        title: 'Special Vehicle Transport'
     },
     {
         id: 13, 
@@ -85,7 +87,7 @@ export const galleryData = [
         id: 15, 
         src: '/Gallery/gallery15.JPG',
         type: 'Cars',
-        title: 'Pickup Truck Delivery'
+        title: 'Single Car Transport'
     },
     {
         id: 16,
@@ -103,6 +105,42 @@ export const galleryData = [
         id: 18,
         src: '/images/pickup.png',
         type: 'Cars',
-        title: 'Pickup Truck Delivery',
+        title: 'Single Car Transport',
+    },
+    {
+        id: 19,
+        src: '/Gallery/gallery19.jpg',
+        type: 'Freight',
+        title: 'Freight Transport',
+    },
+    {
+        id: 20,
+        src: '/Gallery/gallery20.jpg',
+        type: 'Fleet',
+        title: 'Fleet Transport',
+    },
+    {
+        id: 21,
+        src: '/Gallery/gallery21.jpg',
+        type: 'Freight',
+        title: 'Freight Transport',
+    },
+    {
+        id: 22,
+        src: '/Gallery/gallery22.jpeg',
+        type: 'Cars',
+        title: 'Single Car Transport',
+    },
+    {
+        id: 23,
+        src: '/Gallery/gallery23.jpg',
+        type: 'Cars',
+        title: 'Single Car Transport',
+    },
+    {
+        id: 24,
+        src: '/Gallery/gallery24.jpg',
+        type: 'Cars',
+        title: 'Single Car Transport',
     },
 ]

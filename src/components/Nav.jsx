@@ -177,12 +177,18 @@ const Nav = () => {
 							<div
 								className={`socials__dropdown ${socialsOpen ? 'open' : ''}`}
 							>
-								<a href="" className="social__link insta white">
+								<a
+									href="https://www.instagram.com/ec5startransports/"
+									className="social__link insta white"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<FaInstagram />
 								</a>
 								<a
-									href=""
+									href="https://www.tiktok.com/@ec_5_star_transports"
 									className="social__link tiktok white"
+									target="_blank"
 								>
 									<FaTiktok />
 								</a>

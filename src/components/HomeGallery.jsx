@@ -14,8 +14,12 @@ export default function HomeGallery() {
 			title: 'Fleet Transport',
 		},
 		{
-			src: '/images/pickup.png',
-			title: 'Pickup Truck Delivery',
+			src: '/Gallery/gallery24.jpg',
+			title: 'Single Car Transport',
+		},
+		{
+			src: '/Gallery/gallery19.jpg',
+			title: 'Freight Transport',
 		},
 	];
 

@@ -129,6 +129,11 @@ const Services = () => {
 							text="Motorcycles, RVs, and other unique vehicles handled safely from start to finish."
 							icon="motorcycle"
 						/>
+						<ServiceCard
+							title="Freight & Heavy Transport"
+							text="Secure and reliable shipping for heavy equipment, cargo, and oversized loads."
+							icon="freight"
+						/>
 					</div>
 				</div>
 			</div>

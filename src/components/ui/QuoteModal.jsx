@@ -3,7 +3,10 @@ import { createPortal } from 'react-dom';
 import gsap from 'gsap';
 
 export default function QuoteModal({ onClose }) {
-	const [time, setTime] = useState('05:00 AM');
+	const [pickupDate, setPickupDate] = useState('');
+	const [dropoffDate, setDropoffDate] = useState('');
+	const [pickupTime, setPickupTime] = useState('05:00 AM');
+	const [dropoffTime, setDropoffTime] = useState('05:00 AM');
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitStatus, setSubmitStatus] = useState('idle');
 	const [errorMessage, setErrorMessage] = useState('');
@@ -69,6 +72,16 @@ export default function QuoteModal({ onClose }) {
 		});
 	};
 
+	const handlePickupDateChange = (e) => {
+		const newPickupDate = e.target.value;
+		setPickupDate(newPickupDate);
+
+		// Ensure drop-off is not before pickup
+		if (!dropoffDate || dropoffDate < newPickupDate) {
+			setDropoffDate(newPickupDate);
+		}
+	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (isSubmitting) return;
@@ -86,11 +99,29 @@ export default function QuoteModal({ onClose }) {
 			vehicles: formData.get('vehicles'),
 			origin: formData.get('origin'),
 			destination: formData.get('destination'),
-			date: formData.get('date'),
-			time: time,
+			pickupDate,
+			pickupTime,
+			dropoffDate,
+			dropoffTime,
 			transportType: formData.getAll('transportType'),
 			comments: formData.get('comments'),
 		};
+
+		// Frontend validation: dropoff must not be before pickup
+		const pickupDateTime = new Date(
+			`${data.pickupDate} ${data.pickupTime}`,
+		);
+		const dropoffDateTime = new Date(
+			`${data.dropoffDate} ${data.dropoffTime}`,
+		);
+		if (dropoffDateTime < pickupDateTime) {
+			setSubmitStatus('error');
+			setErrorMessage(
+				'Drop-off date/time cannot be before pickup date/time.',
+			);
+			setIsSubmitting(false);
+			return;
+		}
 
 		try {
 			const response = await fetch('/api/quote', {
@@ -109,7 +140,10 @@ export default function QuoteModal({ onClose }) {
 			if (response.ok) {
 				setSubmitStatus('success');
 				formRef.current.reset();
-				setTime('05:00 AM');
+				setPickupDate('');
+				setDropoffDate('');
+				setPickupTime('05:00 AM');
+				setDropoffTime('05:00 AM');
 
 				gsap.fromTo(
 					successRef.current,
@@ -133,21 +167,17 @@ export default function QuoteModal({ onClose }) {
 	useEffect(() => {
 		if (!isVisible) return;
 
-		// Overlay fade in
 		gsap.fromTo(
 			overlayRef.current,
 			{ opacity: 0 },
 			{ opacity: 1, duration: 0.3 },
 		);
-
-		// Modal slide/scale in
 		gsap.fromTo(
 			modalRef.current,
 			{ y: 50, opacity: 0, scale: 0.95 },
 			{ y: 0, opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' },
 		);
 
-		// Staggered fields animation
 		if (formRef.current) {
 			const fields = formRef.current.querySelectorAll(
 				'input, select, textarea, div.checkbox-group',
@@ -166,7 +196,6 @@ export default function QuoteModal({ onClose }) {
 			);
 		}
 
-		// Gradient animation for heading and button
 		const gradientStyle = {
 			backgroundImage:
 				'linear-gradient(120deg, #7a5a12 0%, #F4BA1D 25%, #fff1b8 45%, #F4BA1D 65%, #7a5a12 100%)',
@@ -186,7 +215,6 @@ export default function QuoteModal({ onClose }) {
 			ease: 'power1.inOut',
 		});
 
-		// Button hover shadows
 		if (buttonRef.current) {
 			buttonRef.current.addEventListener('mouseenter', () =>
 				gsap.to(buttonRef.current, {
@@ -277,19 +305,66 @@ export default function QuoteModal({ onClose }) {
 								required
 							/>
 
-							<input type="date" name="date" required />
+							<div className="flex-row">
+								<div>
+									<label>Pickup Date</label>
+									<input
+										type="date"
+										name="pickupDate"
+										value={pickupDate}
+										onChange={handlePickupDateChange}
+										required
+									/>
+								</div>
+								<div>
+									<label>Drop-off Date</label>
+									<input
+										type="date"
+										name="dropoffDate"
+										value={dropoffDate}
+										onChange={(e) =>
+											setDropoffDate(e.target.value)
+										}
+										min={pickupDate || undefined}
+										required
+									/>
+								</div>
+							</div>
 
-							<select
-								value={time}
-								onChange={(e) => setTime(e.target.value)}
-								required
-							>
-								{times.map((t) => (
-									<option key={t} value={t}>
-										{t}
-									</option>
-								))}
-							</select>
+							<div className="flex-row">
+								<div>
+									<label>Pickup Time</label>
+									<select
+										value={pickupTime}
+										onChange={(e) =>
+											setPickupTime(e.target.value)
+										}
+										required
+									>
+										{times.map((t) => (
+											<option key={t} value={t}>
+												{t}
+											</option>
+										))}
+									</select>
+								</div>
+								<div>
+									<label>Drop-off Time</label>
+									<select
+										value={dropoffTime}
+										onChange={(e) =>
+											setDropoffTime(e.target.value)
+										}
+										required
+									>
+										{times.map((t) => (
+											<option key={t} value={t}>
+												{t}
+											</option>
+										))}
+									</select>
+								</div>
+							</div>
 
 							<div className="checkbox-group">
 								{[
