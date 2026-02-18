@@ -28,12 +28,21 @@ const Footer = () => {
 
 				<ul className="social__list">
 					<li>
-						<a href="" className="social__link insta white">
+						<a
+							href="https://www.instagram.com/ec5startransports/"
+							className="social__link insta white"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<FaInstagram />
 						</a>
 					</li>
 					<li>
-						<a href="" className="social__link tiktok white">
+						<a
+							href="https://www.tiktok.com/@ec_5_star_transports"
+							className="social__link tiktok white"
+							target="_blank"
+						>
 							<FaTiktok />
 						</a>
 					</li>

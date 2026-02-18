@@ -819,6 +819,7 @@ nav {
 .about-hero {
   position: relative;
   height: 50vh;
+  padding: 120px 36px 0 36px;
   background-attachment: fixed;
   min-height: 420px;
   background: url("/images/denali-grass.jpg") center/cover no-repeat;

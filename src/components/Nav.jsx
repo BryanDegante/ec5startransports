@@ -249,8 +249,10 @@ const Nav = () => {
 							</li>
 							<li className="modal__link">
 								<a
-									href="/Gallery"
-									className="nav__text white page__link link__hover--effect"
+									href="https://www.instagram.com/ec5startransports/"
+									className="social__link insta white"
+									target="_blank"
+									rel="noopener noreferrer"
 								>
 									Gallery
 								</a>
@@ -263,8 +265,9 @@ const Nav = () => {
 							</li>
 							<li className="modal__link social">
 								<a
-									href=""
+									href="https://www.tiktok.com/@ec_5_star_transports"
 									className="social__link tiktok white"
+									target="_blank"
 								>
 									<FaTiktok />
 								</a>
